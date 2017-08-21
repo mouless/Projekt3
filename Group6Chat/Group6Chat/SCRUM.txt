@@ -1,0 +1,8 @@
+﻿Daily SCRUM-meetings at 09:00-hours
+
+Our definition of done = "It ain't over until the fat lady sings!"
+
+Det ska redovisas vilka estimat som gjorts och verklig tidsåtgång.
+Använd userstories för att beskriva all funktionalitet. 
+
+First sprint backlog item = 7h (functionality).

@@ -16,5 +16,10 @@ namespace Group6Chat
         {
             InitializeComponent();
         }
+
+        private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
