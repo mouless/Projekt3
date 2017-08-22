@@ -37,8 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,19 +125,19 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // exitProgramToolStripMenuItem
-            // 
-            this.exitProgramToolStripMenuItem.Name = "exitProgramToolStripMenuItem";
-            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.exitProgramToolStripMenuItem.Text = "Exit program";
-            this.exitProgramToolStripMenuItem.Click += new System.EventHandler(this.exitProgramToolStripMenuItem_Click);
-            // 
             // connectToServerToolStripMenuItem
             // 
             this.connectToServerToolStripMenuItem.Name = "connectToServerToolStripMenuItem";
             this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
             this.connectToServerToolStripMenuItem.Text = "Connect to server";
             this.connectToServerToolStripMenuItem.Click += new System.EventHandler(this.connectToServerToolStripMenuItem_Click);
+            // 
+            // exitProgramToolStripMenuItem
+            // 
+            this.exitProgramToolStripMenuItem.Name = "exitProgramToolStripMenuItem";
+            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.exitProgramToolStripMenuItem.Text = "Exit program";
+            this.exitProgramToolStripMenuItem.Click += new System.EventHandler(this.exitProgramToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -155,6 +155,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Group6Chat";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

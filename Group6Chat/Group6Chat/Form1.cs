@@ -38,14 +38,52 @@ namespace Group6Chat
 
         private void connectToServerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HostServer = Networking_client.StartTheClient(this);
+            Form insertUserName = new Form();
+            insertUserName.ClientSize = new Size(296, 107);
+            insertUserName.MinimizeBox = false;
+            insertUserName.MaximizeBox = false;
+            Label label = new Label();
+            TextBox textBox = new TextBox();
+            Button buttonOk = new Button();
+            Button buttonCancel = new Button();
+            insertUserName.Text = "Insert username";
+            label.Text = "Insert your username:";
+            buttonOk.Text = "OK";
+            buttonCancel.Text = "Cancel";
+            buttonOk.DialogResult = DialogResult.OK;
+            buttonCancel.DialogResult = DialogResult.Cancel;
+            label.SetBounds(9, 20, 372, 13);
+            textBox.SetBounds(12, 36, 372, 20);
+            buttonOk.SetBounds(228, 72, 75, 23);
+            buttonCancel.SetBounds(309, 72, 75, 23);
+
+            insertUserName.ClientSize = new Size(296, 107);
+            insertUserName.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
+            insertUserName.ClientSize = new Size(Math.Max(300, label.Right + 10), insertUserName.ClientSize.Height);
+            insertUserName.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+            insertUserName.AcceptButton = buttonOk;
+            insertUserName.CancelButton = buttonCancel;
+
+            insertUserName.ShowDialog();
+
+            if (textBox.Text.Length > 0)
+            {
+                string message = User.ToJson(textBox.Text, textBox.Text, MessageType.UserName);
+                HostServer = Networking_client.StartTheClient(this);
+                NetworkStream n = HostServer.GetStream();
+                BinaryWriter w = new BinaryWriter(n);
+                w.Write(message);
+                w.Flush();
+            }
+
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
             string userName = "Niko";
             string input = this.textBoxInput.Text;
-            string message = User.ToJson(userName, input);
+            string message = User.ToJson(userName, input, MessageType.Message);
 
             // Serialize to JSON
             try
@@ -64,6 +102,11 @@ namespace Group6Chat
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

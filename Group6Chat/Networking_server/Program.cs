@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Networking_server
 {
@@ -22,7 +23,7 @@ namespace Networking_server
 
         public class Server
         {
-            List<ClientHandler> clients = new List<ClientHandler>();
+            public static List<ClientHandler> clients = new List<ClientHandler>();
             public void Run()
             {
                 TcpListener listener = new TcpListener(IPAddress.Any, 5000);
@@ -36,7 +37,8 @@ namespace Networking_server
                     {
                         TcpClient c = listener.AcceptTcpClient();
                         ClientHandler newClient = new ClientHandler(c, this);
-                        clients.Add(newClient);
+                        //Måste lägga till username till newClient för att kunna kolla om det finns i listan.
+                        clients.Add(newClient); // Don't do this here...
 
                         Thread clientThread = new Thread(newClient.Run);
                         clientThread.Start();
@@ -86,6 +88,8 @@ namespace Networking_server
         {
             public TcpClient tcpclient;
             private Server myServer;
+            public string UserName { get; set; } // Kolla så att det finns unika användare
+
             public ClientHandler(TcpClient c, Server server)
             {
                 tcpclient = c;
@@ -97,11 +101,30 @@ namespace Networking_server
                 try
                 {
                     string message = "";
+                    //while (UserName != null)
+                    //{
+                    //    // Kolla så att UserName är unikt eller inte
+                    //    NetworkStream n = tcpclient.GetStream();
+                    //    message = new BinaryReader(n).ReadString();
+                    //}
                     while (!message.Equals("quit"))
                     {
-                        // JSON???
                         NetworkStream n = tcpclient.GetStream();
                         message = new BinaryReader(n).ReadString();
+                        // de-serialize
+                        User tempUser = JsonConvert.DeserializeObject<User>(message);
+                        if(tempUser.TypeOfMessage == 0) //username type.
+                        {
+                            foreach (ClientHandler tmpClient in Server.clients)
+                            {
+                                if(tmpClient.UserName == tempUser.UserName)
+                                {
+
+                                }
+                            }
+                        }
+                        
+                        // serialize
                         myServer.Broadcast(this, message);
                         Console.WriteLine(message);
                     }

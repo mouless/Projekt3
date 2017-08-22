@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Group6Chat
+namespace Networking_server
 {
     public enum MessageType
     {
