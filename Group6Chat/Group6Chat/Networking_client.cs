@@ -11,31 +11,38 @@ namespace Group6Chat
 {
     public class Networking_client
     {
-        public static void StartTheClient()
+        public static TcpClient StartTheClient(Form1 form1)
         {
-            Client myClient = new Client();
+            Client myClient = new Client(form1);
+            myClient.Start();
 
-            Thread clientThread = new Thread(myClient.Start);
-            clientThread.Start();
-            clientThread.Join();
+            //Thread clientThread = new Thread(myClient.Start);
+            //clientThread.Start();
+
+            return myClient.HostServer;
         }
 
         public class Client
         {
-            private TcpClient client;
+            Form1 form1;
+
+            public Client(Form1 form1)
+            {
+                this.form1 = form1;
+            }
+
+            public TcpClient HostServer { get; set; }
 
             public void Start()
             {
-                client = new TcpClient("192.168.25.87", 5000);
+                HostServer = new TcpClient("192.168.25.87", 5000);
 
-                Thread listenerThread = new Thread(Send);
+                Thread listenerThread = new Thread(Listen);
                 listenerThread.Start();
 
-                Thread senderThread = new Thread(Listen);
-                senderThread.Start();
+                //Thread senderThread = new Thread(Send);
+                //senderThread.Start();
 
-                senderThread.Join();
-                listenerThread.Join();
             }
 
             public void Listen()
@@ -46,10 +53,10 @@ namespace Group6Chat
                 {
                     while (true)
                     {
-                        NetworkStream n = client.GetStream();
+                        NetworkStream n = HostServer.GetStream();
                         message = new BinaryReader(n).ReadString();
                         //Console.WriteLine("Other: " + message);
-                        Form1.WriteToTextbox(message);
+                        form1.WriteToTextbox(message);
                     }
                 }
                 catch (Exception ex)
@@ -58,29 +65,29 @@ namespace Group6Chat
                 }
             }
 
-            public void Send()
-            {
-                string message = "";
+            //public void Send()
+            //{
+            //    string message = "";
 
-                try
-                {
-                    while (!message.Equals("quit"))
-                    {
-                        NetworkStream n = client.GetStream();
+            //    try
+            //    {
+            //        while (!message.Equals("quit"))
+            //        {
+            //            NetworkStream n = client.GetStream();
 
-                        message = Console.ReadLine();
-                        BinaryWriter w = new BinaryWriter(n);
-                        w.Write(message);
-                        w.Flush();
-                    }
+            //            message = Console.ReadLine();
+            //            BinaryWriter w = new BinaryWriter(n);
+            //            w.Write(message);
+            //            w.Flush();
+            //        }
 
-                    client.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
+            //        client.Close();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //    }
+            //}
         }
     }
 }

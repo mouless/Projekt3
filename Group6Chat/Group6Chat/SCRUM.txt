@@ -15,3 +15,4 @@ De senaste 24h gjorde vi:
 Skapade andra SCRUM värden = Def. of done. Daily SCRUM, Sprints, Time estimates.
 	De kommande 24h ska vi:
 	Göra ett fungerande program som ska kunna skicka meddelanden.
+	Göra en bekräftelse på lyckad anslutning till servern.
