@@ -23,7 +23,7 @@ namespace Group6Chat
 
         public void WriteToTextbox(string message)
         {
-            textBoxConvo.Text = message;
+            textBoxConvo.Text += $"{message}\r\n";
         }
 
         private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)

@@ -56,7 +56,11 @@ namespace Group6Chat
                         NetworkStream n = HostServer.GetStream();
                         message = new BinaryReader(n).ReadString();
                         //Console.WriteLine("Other: " + message);
-                        form1.WriteToTextbox(message);
+                        //form1.WriteToTextbox(message);
+                        form1.Invoke((Action)delegate ()
+                        {
+                            form1.WriteToTextbox(message);
+                        });
                     }
                 }
                 catch (Exception ex)
