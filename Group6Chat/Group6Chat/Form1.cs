@@ -17,9 +17,24 @@ namespace Group6Chat
             InitializeComponent();
         }
 
+        public void WriteToTextbox(string message)
+        {
+            textBoxConvo.Text = message;
+        }
+
         private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        public void textBoxConvo_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void connectToServerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Networking_client.StartTheClient();
         }
     }
 }

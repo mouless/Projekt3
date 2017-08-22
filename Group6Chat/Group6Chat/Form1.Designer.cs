@@ -38,6 +38,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             this.textBoxConvo.Name = "textBoxConvo";
             this.textBoxConvo.Size = new System.Drawing.Size(412, 424);
             this.textBoxConvo.TabIndex = 2;
+            this.textBoxConvo.TextChanged += new System.EventHandler(this.textBoxConvo_TextChanged);
             // 
             // lblYourNameHere
             // 
@@ -116,6 +118,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectToServerToolStripMenuItem,
             this.exitProgramToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
@@ -127,6 +130,13 @@
             this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.exitProgramToolStripMenuItem.Text = "Exit program";
             this.exitProgramToolStripMenuItem.Click += new System.EventHandler(this.exitProgramToolStripMenuItem_Click);
+            // 
+            // connectToServerToolStripMenuItem
+            // 
+            this.connectToServerToolStripMenuItem.Name = "connectToServerToolStripMenuItem";
+            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.connectToServerToolStripMenuItem.Text = "Connect to server";
+            this.connectToServerToolStripMenuItem.Click += new System.EventHandler(this.connectToServerToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -163,6 +173,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitProgramToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem connectToServerToolStripMenuItem;
     }
 }
 

@@ -6,3 +6,12 @@ Det ska redovisas vilka estimat som gjorts och verklig tidsåtgång.
 Använd userstories för att beskriva all funktionalitet. 
 
 First sprint backlog item = 7h (functionality).
+
+2017-08-22 - Daily SCRUM:
+De senaste 24h gjorde vi:
+	En backlog (en funktionabel WinForm-app med standard layout).
+	Skapade Trello.
+	Skapade Git.
+Skapade andra SCRUM värden = Def. of done. Daily SCRUM, Sprints, Time estimates.
+	De kommande 24h ska vi:
+	Göra ett fungerande program som ska kunna skicka meddelanden.

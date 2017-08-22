@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Sockets;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Group6Chat
 {
-    static class Program
+    class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -17,6 +20,8 @@ namespace Group6Chat
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
         }
+        
     }
 }
