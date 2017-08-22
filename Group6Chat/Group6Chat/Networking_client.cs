@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Group6Chat
 {
@@ -56,10 +57,10 @@ namespace Group6Chat
                         NetworkStream n = HostServer.GetStream();
                         message = new BinaryReader(n).ReadString();
                         //Console.WriteLine("Other: " + message);
-                        //form1.WriteToTextbox(message);
                         form1.Invoke((Action)delegate ()
                         {
-                            form1.WriteToTextbox(message);
+                            User c = JsonConvert.DeserializeObject<User>(message);
+                            form1.WriteToTextbox(c);
                         });
                     }
                 }

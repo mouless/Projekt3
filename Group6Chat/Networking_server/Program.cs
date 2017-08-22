@@ -57,14 +57,14 @@ namespace Networking_server
             {
                 foreach (ClientHandler tmpClient in clients)
                 {
-                    if (tmpClient != client)
+                    if (tmpClient != client || tmpClient == client)
                     {
                         NetworkStream n = tmpClient.tcpclient.GetStream();
                         BinaryWriter w = new BinaryWriter(n);
                         w.Write(message);
                         w.Flush();
                     }
-                    else if (clients.Count() == 1)
+                    if (clients.Count() == 1)
                     {
                         NetworkStream n = tmpClient.tcpclient.GetStream();
                         BinaryWriter w = new BinaryWriter(n);
@@ -99,6 +99,7 @@ namespace Networking_server
                     string message = "";
                     while (!message.Equals("quit"))
                     {
+                        // JSON???
                         NetworkStream n = tcpclient.GetStream();
                         message = new BinaryReader(n).ReadString();
                         myServer.Broadcast(this, message);

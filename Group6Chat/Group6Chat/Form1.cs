@@ -21,9 +21,9 @@ namespace Group6Chat
             InitializeComponent();
         }
 
-        public void WriteToTextbox(string message)
+        public void WriteToTextbox(User u)
         {
-            textBoxConvo.Text += $"{message}\r\n";
+            textBoxConvo.Text += $"{u.UserName}: {u.Message}\r\n";
         }
 
         private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,8 +43,11 @@ namespace Group6Chat
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            string message = this.textBoxInput.Text;
-            
+            string userName = "Niko";
+            string input = this.textBoxInput.Text;
+            string message = User.ToJson(userName, input);
+
+            // Serialize to JSON
             try
             {
                 if (!message.Equals("quit"))
