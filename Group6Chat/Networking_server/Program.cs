@@ -57,30 +57,30 @@ namespace Networking_server
 
             public void Broadcast(ClientHandler client, string message)
             {
-                for (int i = clients.Count - 1; i > 0; i--)
-                {
-                    if (!clients[i].tcpclient.Connected)
-                    {
-                        //string u = JsonConvert.SerializeObject(clients[i].UserName);
-                        //NetworkStream nnn = clients[i].tcpclient.GetStream();
-                        //BinaryWriter wwww = new BinaryWriter(nnn);
-                        //wwww.Write(u);
-                        //wwww.Flush();
+                //for (int i = clients.Count - 1; i >= 0; i--)
+                //{
+                //    if (!clients[i].tcpclient.Connected)
+                //    {
+                //        //string u = JsonConvert.SerializeObject(clients[i].UserName);
+                //        //NetworkStream nnn = clients[i].tcpclient.GetStream();
+                //        //BinaryWriter wwww = new BinaryWriter(nnn);
+                //        //wwww.Write(u);
+                //        //wwww.Flush();
 
-                        clients.RemoveAt(i);
-                        //i--;
+                //        clients.RemoveAt(i);
+                //        i--;
 
-                        //i = clients.Count;
-                        // Se till att borttagning från listboxen funkar...
-                    }
-                    if (clients[i] != client || clients[i] == client)
-                    {
-                        NetworkStream n = clients[i].tcpclient.GetStream();
-                        BinaryWriter w = new BinaryWriter(n);
-                        w.Write(message);
-                        w.Flush();
-                    }
-                }
+                //        //i = clients.Count;
+                //        // Se till att borttagning från listboxen funkar...
+                //    }
+                //    if (clients[i] != client || clients[i] == client)
+                //    {
+                //        NetworkStream n = clients[i].tcpclient.GetStream();
+                //        BinaryWriter w = new BinaryWriter(n);
+                //        w.Write(message);
+                //        w.Flush();
+                //    }
+                //}
 
                 //for (int i = 0; i < clients.Count; i++)
                 //{
@@ -106,24 +106,32 @@ namespace Networking_server
                 //        w.Flush();
                 //    }
                 //}
+                for (int i = 0; i < clients.Count; i++)
+                {
+                    if (!clients[i].tcpclient.Connected)
+                    {
+                        clients.RemoveAt(i);
+                        //i--;
+                    }
+                }
 
-                //foreach (ClientHandler tmpClient in clients)
-                //{
-                //    if (tmpClient != client || tmpClient == client)
-                //    {
-                //        NetworkStream n = tmpClient.tcpclient.GetStream();
-                //        BinaryWriter w = new BinaryWriter(n);
-                //        w.Write(message);
-                //        w.Flush();
-                //    }
-                //    //if (clients.Count() == 1)
-                //    //{
-                //    //    NetworkStream n = tmpClient.tcpclient.GetStream();
-                //    //    BinaryWriter w = new BinaryWriter(n);
-                //    //    w.Write("Sorry, no clients connected. You are alone...");
-                //    //    w.Flush();
-                //    //}
-                //}
+                foreach (ClientHandler tmpClient in clients)
+                {
+                    if (tmpClient != client || tmpClient == client)
+                    {
+                        NetworkStream n = tmpClient.tcpclient.GetStream();
+                        BinaryWriter w = new BinaryWriter(n);
+                        w.Write(message);
+                        w.Flush();
+                    }
+                    //if (clients.Count() == 1)
+                    //{
+                    //    NetworkStream n = tmpClient.tcpclient.GetStream();
+                    //    BinaryWriter w = new BinaryWriter(n);
+                    //    w.Write("Sorry, no clients connected. You are alone...");
+                    //    w.Flush();
+                    //}
+                }
             }
 
             public void DisconnectClient(ClientHandler client)
