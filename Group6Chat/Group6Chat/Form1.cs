@@ -15,6 +15,7 @@ namespace Group6Chat
     public partial class Form1 : Form
     {
         TcpClient HostServer;
+        public static string UniqueUserName { get; set; }
 
         public Form1()
         {
@@ -25,6 +26,7 @@ namespace Group6Chat
         {
             if (u.TypeOfMessage == MessageType.UserName)
             {
+                UniqueUserName = u.UserName;
                 MessageBox.Show("You're connected... brah!");
             }
             else if (u.TypeOfMessage == MessageType.Message)
@@ -91,10 +93,10 @@ namespace Group6Chat
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            string userName = "Niko"; //Get the userName from the accepted unique UserName
+            //string userName = UniqueUserName; //Get the userName from the accepted unique UserName
             string input = this.textBoxInput.Text;
             // Serialize to JSON
-            string message = User.ToJson(userName, input, MessageType.Message);
+            string message = User.ToJson(UniqueUserName, input, MessageType.Message);
 
             try
             {

@@ -137,7 +137,10 @@ namespace Networking_server
                         // serialize
                         message = JsonConvert.SerializeObject(tempUser);
                         // serialize
-                        myServer.Broadcast(this, message);
+                        if (tempUser.TypeOfMessage == MessageType.Message)
+                        {
+                            myServer.Broadcast(this, message);
+                        }
                         Console.WriteLine(message);
                     }
 
