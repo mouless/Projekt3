@@ -62,10 +62,10 @@ namespace Networking_server
                     if (!clients[i].tcpclient.Connected)
                     {
                         string u = JsonConvert.SerializeObject(clients);
-                        //NetworkStream nnn = clients[i].tcpclient.GetStream();
-                        //BinaryWriter wwww = new BinaryWriter(nnn);
-                        //wwww.Write(u);
-                        //wwww.Flush();
+                        NetworkStream nnn = clients[i].tcpclient.GetStream();
+                        BinaryWriter wwww = new BinaryWriter(nnn);
+                        wwww.Write(u);
+                        wwww.Flush();
                         clients.RemoveAt(i);
                         // Se till att borttagning från listboxen funkar...
                     }
@@ -110,11 +110,13 @@ namespace Networking_server
             public TcpClient tcpclient;
             private Server myServer;
             public string UserName { get; set; } // Kolla så att det finns unika användare
+            public bool IsOnline { get; set; }
 
             public ClientHandler(TcpClient c, Server server)
             {
                 tcpclient = c;
                 this.myServer = server;
+                IsOnline = true;
             }
 
             public void Run()
