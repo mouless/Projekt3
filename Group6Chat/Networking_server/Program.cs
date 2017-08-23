@@ -57,23 +57,34 @@ namespace Networking_server
 
             public void Broadcast(ClientHandler client, string message)
             {
-                foreach (ClientHandler tmpClient in clients)
+                for (int i = 0; i < clients.Count; i++)
                 {
-                    if (tmpClient != client || tmpClient == client)
+                    if (clients[i] != client || clients[i] == client)
                     {
-                        NetworkStream n = tmpClient.tcpclient.GetStream();
+                        NetworkStream n = clients[i].tcpclient.GetStream();
                         BinaryWriter w = new BinaryWriter(n);
                         w.Write(message);
                         w.Flush();
                     }
-                    //if (clients.Count() == 1)
-                    //{
-                    //    NetworkStream n = tmpClient.tcpclient.GetStream();
-                    //    BinaryWriter w = new BinaryWriter(n);
-                    //    w.Write("Sorry, no clients connected. You are alone...");
-                    //    w.Flush();
-                    //}
                 }
+                
+                //foreach (ClientHandler tmpClient in clients)
+                //{
+                //    if (tmpClient != client || tmpClient == client)
+                //    {
+                //        NetworkStream n = tmpClient.tcpclient.GetStream();
+                //        BinaryWriter w = new BinaryWriter(n);
+                //        w.Write(message);
+                //        w.Flush();
+                //    }
+                //    //if (clients.Count() == 1)
+                //    //{
+                //    //    NetworkStream n = tmpClient.tcpclient.GetStream();
+                //    //    BinaryWriter w = new BinaryWriter(n);
+                //    //    w.Write("Sorry, no clients connected. You are alone...");
+                //    //    w.Flush();
+                //    //}
+                //}
             }
 
             public void DisconnectClient(ClientHandler client)
