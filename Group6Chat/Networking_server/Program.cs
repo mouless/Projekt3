@@ -61,12 +61,13 @@ namespace Networking_server
                 {
                     if (!clients[i].tcpclient.Connected)
                     {
-                        string u = JsonConvert.SerializeObject(clients[i].UserName);
-                        NetworkStream nnn = clients[i].tcpclient.GetStream();
-                        BinaryWriter wwww = new BinaryWriter(nnn);
-                        wwww.Write(u);
-                        wwww.Flush();
+                        //string u = JsonConvert.SerializeObject(clients[i].UserName);
+                        //NetworkStream nnn = clients[i].tcpclient.GetStream();
+                        //BinaryWriter wwww = new BinaryWriter(nnn);
+                        //wwww.Write(u);
+                        //wwww.Flush();
                         clients.RemoveAt(i);
+                        i = clients.Count;
                         // Se till att borttagning från listboxen funkar...
                     }
                     if (clients[i] != client || clients[i] == client)
