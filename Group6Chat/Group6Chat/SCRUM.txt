@@ -16,3 +16,15 @@ Skapade andra SCRUM värden = Def. of done. Daily SCRUM, Sprints, Time estimates
 	De kommande 24h ska vi:
 	Göra ett fungerande program som ska kunna skicka meddelanden.
 	Göra en bekräftelse på lyckad anslutning till servern.
+
+2017-08-23 - Daily SCRUM:
+De senaste 24h gjorde vi:
+	Uppdaterade vårat Dev Team med två nya aspiranter.
+	Uppdaterade vårat product backlog.
+	La till JSON funktionalitet.
+	La till en ny klass "User" för att kunna utveckla protokoll.
+	Lyckades skapa funktionalitet för att skicka/ta emot meddelanden.
+De kommande 24h ska vi:
+	Göra en bekräftelse på lyckad anslutning till servern.
+	Kolla vad det är för Message-type på meddelandet som skickas (Message, Private Message, UserName).
+

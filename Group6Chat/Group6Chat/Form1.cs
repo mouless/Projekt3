@@ -76,7 +76,6 @@ namespace Group6Chat
                 w.Write(message);
                 w.Flush();
             }
-
         }
 
         private void btnSend_Click(object sender, EventArgs e)

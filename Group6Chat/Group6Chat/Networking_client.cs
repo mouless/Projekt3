@@ -36,7 +36,7 @@ namespace Group6Chat
 
             public void Start()
             {
-                HostServer = new TcpClient("192.168.25.87", 5000);
+                HostServer = new TcpClient("192.168.25.68", 5000);
 
                 Thread listenerThread = new Thread(Listen);
                 listenerThread.Start();

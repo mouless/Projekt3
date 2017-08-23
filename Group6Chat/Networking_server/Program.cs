@@ -113,6 +113,7 @@ namespace Networking_server
                         message = new BinaryReader(n).ReadString();
                         // de-serialize
                         User tempUser = JsonConvert.DeserializeObject<User>(message);
+                        
                         if(tempUser.TypeOfMessage == 0) //username type.
                         {
                             foreach (ClientHandler tmpClient in Server.clients)
