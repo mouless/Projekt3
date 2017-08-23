@@ -130,8 +130,8 @@ namespace Group6Chat
 
         private void textBoxInput_TextChanged(object sender, EventArgs e)
         {
-            textBoxInput.AcceptsReturn = false;
-            this.AcceptButton = btnSend;
+            //textBoxInput.AcceptsReturn = false;
+            //this.AcceptButton = btnSend;
         }
 
         private void listBoxParticipants_SelectedIndexChanged(object sender, EventArgs e)
