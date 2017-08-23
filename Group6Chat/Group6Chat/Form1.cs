@@ -31,7 +31,7 @@ namespace Group6Chat
             }
             else if (u.TypeOfMessage == MessageType.Message)
             {
-                textBoxConvo.Text += $"{u.UserName}: {u.Message}\r\n";
+                textBoxConvo.AppendText($"{u.UserName}: {u.Message}\r\n");
             }
             else if (u.TypeOfMessage == MessageType.PrivateMessage)
             {
@@ -128,7 +128,6 @@ namespace Group6Chat
         {
             textBoxInput.AcceptsReturn = false;
             this.AcceptButton = btnSend;
-            
         }
     }
 }

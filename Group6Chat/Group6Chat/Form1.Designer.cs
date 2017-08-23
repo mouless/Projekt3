@@ -66,6 +66,7 @@
             this.textBoxConvo.Location = new System.Drawing.Point(12, 65);
             this.textBoxConvo.Multiline = true;
             this.textBoxConvo.Name = "textBoxConvo";
+            this.textBoxConvo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxConvo.Size = new System.Drawing.Size(412, 424);
             this.textBoxConvo.TabIndex = 2;
             this.textBoxConvo.TextChanged += new System.EventHandler(this.textBoxConvo_TextChanged);
