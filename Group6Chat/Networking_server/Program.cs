@@ -142,9 +142,7 @@ namespace Networking_server
                                 // Skicka tillbaka ett värde (bool???) för att kolla om UserName inte var unikt eller dyl...
                             }
                         }
-                        // Retunera
-                        // serialize
-                        // serialize
+
                         message = JsonConvert.SerializeObject(tempUser);
                         if (tempUser.TypeOfMessage == MessageType.Message)
                         {

@@ -99,9 +99,8 @@ namespace Group6Chat
         {
             //string userName = UniqueUserName; //Get the userName from the accepted unique UserName
             string input = this.textBoxInput.Text;
-            // Serialize to JSON
             string message = User.ToJson(UniqueUserName, input, MessageType.Message);
-
+            textBoxInput.Text = "";
             try
             {
                 if (!message.Equals("quit"))
@@ -123,6 +122,13 @@ namespace Group6Chat
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxInput_TextChanged(object sender, EventArgs e)
+        {
+            textBoxInput.AcceptsReturn = false;
+            this.AcceptButton = btnSend;
+            
         }
     }
 }
