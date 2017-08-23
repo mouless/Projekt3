@@ -59,6 +59,10 @@ namespace Networking_server
             {
                 for (int i = 0; i < clients.Count; i++)
                 {
+                    if (!clients[i].tcpclient.Connected)
+                    {
+                        clients.RemoveAt(i);
+                    }
                     if (clients[i] != client || clients[i] == client)
                     {
                         NetworkStream n = clients[i].tcpclient.GetStream();
@@ -122,10 +126,9 @@ namespace Networking_server
                     {
                         NetworkStream n = tcpclient.GetStream();
                         message = new BinaryReader(n).ReadString();
-                        // de-serialize
                         User tempUser = JsonConvert.DeserializeObject<User>(message);
 
-                        if (tempUser.TypeOfMessage == MessageType.UserName) //username type.
+                        if (tempUser.TypeOfMessage == MessageType.UserName)
                         {
                             bool nameExists = Server.clients.FindAll(x => x.UserName == tempUser.UserName).Count() == 0;
 
@@ -137,7 +140,6 @@ namespace Networking_server
                                 BinaryWriter w = new BinaryWriter(nn);
                                 w.Write(message);
                                 w.Flush();
-                                // Hitta på ett sätt att kunna plocka ut UserName så att användaren får det som sitt UserName
                             }
                             else
                             {
