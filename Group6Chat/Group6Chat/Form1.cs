@@ -80,11 +80,11 @@ namespace Group6Chat
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            string userName = "Niko";
+            string userName = "Niko"; //Get the userName from the accepted unique UserName
             string input = this.textBoxInput.Text;
+            // Serialize to JSON
             string message = User.ToJson(userName, input, MessageType.Message);
 
-            // Serialize to JSON
             try
             {
                 if (!message.Equals("quit"))

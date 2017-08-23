@@ -113,18 +113,27 @@ namespace Networking_server
                         message = new BinaryReader(n).ReadString();
                         // de-serialize
                         User tempUser = JsonConvert.DeserializeObject<User>(message);
-                        
-                        if(tempUser.TypeOfMessage == 0) //username type.
+
+                        if (tempUser.TypeOfMessage == MessageType.UserName) //username type.
                         {
-                            foreach (ClientHandler newClient in Server.clients)
+                            bool nameExists = Server.clients.FindAll(x => x.UserName == tempUser.UserName).Count() == 0;
+
+                            if (nameExists)
                             {
-                                if(!(newClient.UserName == tempUser.UserName))
-                                {
-                                    this.UserName = tempUser.UserName;
-                                    Server.clients.Add(this);
-                                }
+                                this.UserName = tempUser.UserName;
+                                Server.clients.Add(this);
+                                NetworkStream nn = tcpclient.GetStream();
+                                BinaryWriter w = new BinaryWriter(nn);
+                                w.Write(message);
+                                w.Flush();
+                                // Hitta på ett sätt att kunna plocka ut UserName så att användaren får det som sitt UserName
+                            }
+                            else
+                            {
+                                // Skicka tillbaka ett värde (bool???) för att kolla om UserName inte var unikt eller dyl...
                             }
                         }
+                        // Retunera
                         // serialize
                         message = JsonConvert.SerializeObject(tempUser);
                         // serialize
