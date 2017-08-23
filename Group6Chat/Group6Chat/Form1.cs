@@ -67,7 +67,7 @@ namespace Group6Chat
 
             insertUserName.ShowDialog();
 
-            if (textBox.Text.Length > 0)
+            if (textBox.Text.Length > 1)
             {
                 string message = User.ToJson(textBox.Text, textBox.Text, MessageType.UserName);
                 HostServer = Networking_client.StartTheClient(this);

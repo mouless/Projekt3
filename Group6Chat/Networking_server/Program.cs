@@ -38,7 +38,7 @@ namespace Networking_server
                         TcpClient c = listener.AcceptTcpClient();
                         ClientHandler newClient = new ClientHandler(c, this);
                         //Måste lägga till username till newClient för att kunna kolla om det finns i listan.
-                        clients.Add(newClient); // Don't do this here...
+                        //clients.Add(newClient); // Don't do this here...
 
                         Thread clientThread = new Thread(newClient.Run);
                         clientThread.Start();
@@ -116,15 +116,17 @@ namespace Networking_server
                         
                         if(tempUser.TypeOfMessage == 0) //username type.
                         {
-                            foreach (ClientHandler tmpClient in Server.clients)
+                            foreach (ClientHandler newClient in Server.clients)
                             {
-                                if(tmpClient.UserName == tempUser.UserName)
+                                if(!(newClient.UserName == tempUser.UserName))
                                 {
-
+                                    this.UserName = tempUser.UserName;
+                                    Server.clients.Add(this);
                                 }
                             }
                         }
-                        
+                        // serialize
+                        message = JsonConvert.SerializeObject(tempUser);
                         // serialize
                         myServer.Broadcast(this, message);
                         Console.WriteLine(message);
