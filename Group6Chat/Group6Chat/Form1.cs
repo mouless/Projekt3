@@ -37,6 +37,10 @@ namespace Group6Chat
             {
 
             }
+            else if (u.TypeOfMessage == MessageType.ErrorMessage)
+            {
+                MessageBox.Show("Username is already taken. Please try something else!");
+            }
         }
 
         private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)

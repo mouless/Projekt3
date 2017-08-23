@@ -11,7 +11,8 @@ namespace Networking_server
     {
         UserName,
         PrivateMessage,
-        Message
+        Message,
+        ErrorMessage
     }
     public class User
     {

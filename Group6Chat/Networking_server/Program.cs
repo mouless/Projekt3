@@ -79,8 +79,8 @@ namespace Networking_server
             public void DisconnectClient(ClientHandler client)
             {
                 clients.Remove(client);
-                Console.WriteLine("Client X has left the building...");
-                Broadcast(client, "Client X has left the building...");
+                //Console.WriteLine("Client X has left the building...");
+                //Broadcast(client, "Client X has left the building...");
             }
         }
 
@@ -130,13 +130,22 @@ namespace Networking_server
                             }
                             else
                             {
+                                tempUser.TypeOfMessage = MessageType.ErrorMessage;
+                                message = JsonConvert.SerializeObject(tempUser);
+
+                                NetworkStream nn = tcpclient.GetStream();
+                                BinaryWriter w = new BinaryWriter(nn);
+                                w.Write(message);
+                                w.Flush();
+                                myServer.DisconnectClient(this);
+                                tcpclient.Close();
                                 // Skicka tillbaka ett värde (bool???) för att kolla om UserName inte var unikt eller dyl...
                             }
                         }
                         // Retunera
                         // serialize
-                        message = JsonConvert.SerializeObject(tempUser);
                         // serialize
+                        message = JsonConvert.SerializeObject(tempUser);
                         if (tempUser.TypeOfMessage == MessageType.Message)
                         {
                             myServer.Broadcast(this, message);

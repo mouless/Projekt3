@@ -11,7 +11,8 @@ namespace Group6Chat
     {
         UserName,
         PrivateMessage,
-        Message
+        Message,
+        ErrorMessage
     }
     public class User
     {
