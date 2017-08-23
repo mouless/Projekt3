@@ -138,9 +138,9 @@ namespace Networking_server
 
                         if (tempUser.TypeOfMessage == MessageType.UserName)
                         {
-                            bool nameExists = Server.clients.FindAll(x => x.UserName == tempUser.UserName).Count() == 0;
+                            bool nameDoesNotExists = Server.clients.FindAll(x => x.UserName == tempUser.UserName).Count() == 0;
 
-                            if (nameExists)
+                            if (nameDoesNotExists)
                             {
                                 this.UserName = tempUser.UserName;
                                 Server.clients.Add(this);
