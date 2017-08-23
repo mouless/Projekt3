@@ -61,7 +61,7 @@ namespace Networking_server
                 {
                     if (!clients[i].tcpclient.Connected)
                     {
-                        string u = JsonConvert.SerializeObject(clients);
+                        string u = JsonConvert.SerializeObject(clients[i].UserName);
                         NetworkStream nnn = clients[i].tcpclient.GetStream();
                         BinaryWriter wwww = new BinaryWriter(nnn);
                         wwww.Write(u);
