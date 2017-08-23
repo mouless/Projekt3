@@ -88,6 +88,7 @@
             this.listBoxParticipants.Name = "listBoxParticipants";
             this.listBoxParticipants.Size = new System.Drawing.Size(235, 148);
             this.listBoxParticipants.TabIndex = 4;
+            this.listBoxParticipants.SelectedIndexChanged += new System.EventHandler(this.listBoxParticipants_SelectedIndexChanged);
             // 
             // labelOnlineUsers
             // 

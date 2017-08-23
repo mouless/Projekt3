@@ -62,6 +62,7 @@ namespace Networking_server
                     if (!clients[i].tcpclient.Connected)
                     {
                         clients.RemoveAt(i);
+                        // Se till att borttagning från listboxen funkar...
                     }
                     if (clients[i] != client || clients[i] == client)
                     {

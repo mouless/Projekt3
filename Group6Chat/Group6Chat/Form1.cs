@@ -24,6 +24,10 @@ namespace Group6Chat
 
         public void WriteToTextbox(User u)
         {
+            if (!listBoxParticipants.Items.Contains(u.UserName))
+            {
+                listBoxParticipants.Items.Add(u.UserName);
+            }
             if (u.TypeOfMessage == MessageType.UserName)
             {
                 UniqueUserName = u.UserName;
@@ -128,6 +132,11 @@ namespace Group6Chat
         {
             textBoxInput.AcceptsReturn = false;
             this.AcceptButton = btnSend;
+        }
+
+        private void listBoxParticipants_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
