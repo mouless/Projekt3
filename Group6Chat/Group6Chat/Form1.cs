@@ -23,7 +23,18 @@ namespace Group6Chat
 
         public void WriteToTextbox(User u)
         {
-            textBoxConvo.Text += $"{u.UserName}: {u.Message}\r\n";
+            if (u.TypeOfMessage == MessageType.UserName)
+            {
+                MessageBox.Show("You're connected... brah!");
+            }
+            else if (u.TypeOfMessage == MessageType.Message)
+            {
+                textBoxConvo.Text += $"{u.UserName}: {u.Message}\r\n";
+            }
+            else if (u.TypeOfMessage == MessageType.PrivateMessage)
+            {
+
+            }
         }
 
         private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)

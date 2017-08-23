@@ -66,13 +66,13 @@ namespace Networking_server
                         w.Write(message);
                         w.Flush();
                     }
-                    if (clients.Count() == 1)
-                    {
-                        NetworkStream n = tmpClient.tcpclient.GetStream();
-                        BinaryWriter w = new BinaryWriter(n);
-                        w.Write("Sorry, no clients connected. You are alone...");
-                        w.Flush();
-                    }
+                    //if (clients.Count() == 1)
+                    //{
+                    //    NetworkStream n = tmpClient.tcpclient.GetStream();
+                    //    BinaryWriter w = new BinaryWriter(n);
+                    //    w.Write("Sorry, no clients connected. You are alone...");
+                    //    w.Flush();
+                    //}
                 }
             }
 
