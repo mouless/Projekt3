@@ -60,7 +60,7 @@ namespace Group6Chat
                 }
                 else
                 {
-                    PrivateChatForm privateChat = new PrivateChatForm(NameOfSelectedPrivateConvo, UniqueUserName, HostServer);
+                    PrivateChatForm privateChat = new PrivateChatForm(UniqueUserName, NameOfSelectedPrivateConvo, HostServer);
                     privateChatWindow.Add(privateChat);
 
                     privateChat.Text = $"{NameOfSelectedPrivateConvo} - Private Chat";
