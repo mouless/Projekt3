@@ -19,6 +19,7 @@ namespace Group6Chat
         public string TimeStamp { get; set; } = "";
         public int SelectedForPrivateConvo { get; set; }
         public string NameOfSelectedPrivateConvo { get; set; }
+        List<PrivateChatForm> privateChatWindow = new List<PrivateChatForm>();
 
         public Form1()
         {
@@ -49,6 +50,25 @@ namespace Group6Chat
                 UniqueUserName = u.UserName;
                 MessageBox.Show("You're connected... brah!");
             }
+            else if (u.TypeOfMessage == MessageType.PrivateMessage)
+            {
+
+                var temp = privateChatWindow.Find(x => x.ReceiverOfPrivateMessage == u.Receiver);
+                if (temp != null)
+                {
+                    temp.WriteToPrivateTextbox(u);
+                }
+                else
+                {
+                    PrivateChatForm privateChat = new PrivateChatForm(NameOfSelectedPrivateConvo, UniqueUserName, HostServer);
+                    privateChatWindow.Add(privateChat);
+
+                    privateChat.Text = $"{NameOfSelectedPrivateConvo} - Private Chat";
+                    privateChat.Show();
+                }
+
+
+            }
             else if (u.TypeOfMessage == MessageType.Message)
             {
                 if (!(TimeStamp == DateTime.Now.ToShortTimeString()))
@@ -61,10 +81,6 @@ namespace Group6Chat
                 richTextBoxConvo.SelectionFont = new Font(richTextBoxConvo.Font, FontStyle.Regular);
                 richTextBoxConvo.AppendText(u.Message + "\r");
                 richTextBoxConvo.ScrollToCaret();
-            }
-            else if (u.TypeOfMessage == MessageType.PrivateMessage)
-            {
-
             }
             else if (u.TypeOfMessage == MessageType.ErrorMessage)
             {
@@ -209,12 +225,22 @@ namespace Group6Chat
             {
                 btnPrivateChat.Enabled = false;
             }
-
         }
+
+        //private void listBoxParticipants_MouseDoubleClick(object sender, MouseEventArgs e)
+        //{
+        //    int index = this.listBox1.IndexFromPoint(e.Location);
+        //    if (index != System.Windows.Forms.ListBox.NoMatches)
+        //    {
+        //        MessageBox.Show(index.ToString());
+        //    }
+        //}
+
 
         private void btnPrivateChat_Click(object sender, EventArgs e)
         {
-            PrivateChatForm privateChat = new PrivateChatForm();
+            PrivateChatForm privateChat = new PrivateChatForm(NameOfSelectedPrivateConvo, UniqueUserName, HostServer);
+            privateChatWindow.Add(privateChat);
 
             privateChat.Text = $"{NameOfSelectedPrivateConvo} - Private Chat";
             privateChat.Show();

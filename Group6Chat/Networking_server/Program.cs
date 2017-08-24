@@ -54,6 +54,17 @@ namespace Networking_server
                         listener.Stop();
                 }
             }
+            public void PrivateMessage(string message, string receiver)
+            {
+                ClientHandler tmpClient = clients.Find(x => x.UserName == receiver);
+                if (tmpClient != null)
+                {
+                    NetworkStream n = tmpClient.tcpclient.GetStream();
+                    BinaryWriter w = new BinaryWriter(n);
+                    w.Write(message);
+                    w.Flush();
+                }
+            }
 
             public void Broadcast(ClientHandler client, string message)
             {
@@ -180,13 +191,18 @@ namespace Networking_server
                                 // Skicka tillbaka ett värde (bool???) för att kolla om UserName inte var unikt eller dyl...
                             }
                         }
+                        if (tempUser.TypeOfMessage == MessageType.PrivateMessage)
+                        {
+                            message = JsonConvert.SerializeObject(tempUser);
+                            myServer.PrivateMessage(message, tempUser.Receiver);
+                        }
 
                         message = JsonConvert.SerializeObject(tempUser);
                         if (tempUser.TypeOfMessage == MessageType.Message)
                         {
                             myServer.Broadcast(this, message);
                         }
-                        
+
                         Console.WriteLine(message);
                     }
 

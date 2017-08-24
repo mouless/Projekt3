@@ -52,6 +52,7 @@
             this.btnPrivateSend.TabIndex = 1;
             this.btnPrivateSend.Text = "SEND";
             this.btnPrivateSend.UseVisualStyleBackColor = true;
+            this.btnPrivateSend.Click += new System.EventHandler(this.btnPrivateSend_Click);
             // 
             // textBoxPrivateInput
             // 

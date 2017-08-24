@@ -22,6 +22,7 @@ namespace Group6Chat
         public string Message { get; set; }
         public string Version { get; set; }
         public MessageType TypeOfMessage { get; set; }
+        public string Receiver { get; set; }
 
         public User()
         {
@@ -39,6 +40,15 @@ namespace Group6Chat
         public static string ToJson(User u)
         {
             return User.ToJson(u.UserName, u.Message, u.TypeOfMessage);
+        }
+        public static string ToJson(string userName, string message, MessageType messageType, string receiver)
+        {
+            User u = new User();
+            u.UserName = userName;
+            u.Message = message;
+            u.TypeOfMessage = messageType;
+            u.Receiver = receiver;
+            return JsonConvert.SerializeObject(u);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Networking_server
         public string Message { get; set; }
         public string Version { get; set; }
         public MessageType TypeOfMessage { get; set; }
+        public string Receiver { get; set; }
 
         public User()
         {

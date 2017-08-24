@@ -60,6 +60,7 @@ namespace Group6Chat
                         form1.Invoke((Action)delegate ()
                         {
                             User c = JsonConvert.DeserializeObject<User>(message);
+
                             form1.WriteToTextbox(c);
                         });
                     }
