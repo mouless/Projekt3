@@ -25,11 +25,24 @@ namespace Group6Chat
 
         public void WriteToTextbox(User u)
         {
-            if (!listBoxParticipants.Items.Contains(u.UserName))
+            //if (!listBoxParticipants.Items.Contains(u.UserName))
+            //{
+            //    listBoxParticipants.Items.Add(u.UserName);
+            //}
+            if (u.TypeOfMessage == MessageType.UserList)
             {
-                listBoxParticipants.Items.Add(u.UserName);
+                if (listBoxParticipants.SelectedIndex > 0)
+                {
+                    int user = listBoxParticipants.SelectedIndex;
+                }
+                string[] listOfUsers = u.Message.Split(';');
+                listBoxParticipants.Items.Clear();
+                foreach (var item in listOfUsers)
+                {
+                    listBoxParticipants.Items.Add(item);
+                }
             }
-            if (u.TypeOfMessage == MessageType.UserName)
+            else if (u.TypeOfMessage == MessageType.UserName)
             {
                 UniqueUserName = u.UserName;
                 MessageBox.Show("You're connected... brah!");
@@ -40,7 +53,7 @@ namespace Group6Chat
             }
             else if (u.TypeOfMessage == MessageType.PrivateMessage)
             {
-                
+
             }
             else if (u.TypeOfMessage == MessageType.ErrorMessage)
             {
@@ -151,12 +164,12 @@ namespace Group6Chat
 
         private void textBoxInput_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void listBoxParticipants_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

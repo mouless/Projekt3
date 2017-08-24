@@ -12,7 +12,8 @@ namespace Networking_server
         UserName,
         PrivateMessage,
         Message,
-        ErrorMessage
+        ErrorMessage,
+        UserList
     }
     public class User
     {
@@ -33,6 +34,10 @@ namespace Networking_server
             u.Message = message;
             u.TypeOfMessage = messageType;
             return JsonConvert.SerializeObject(u);
+        }
+        public static string ToJson(User u)
+        {
+            return User.ToJson(u.UserName, u.Message, u.TypeOfMessage);   
         }
     }
 }

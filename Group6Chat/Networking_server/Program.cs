@@ -114,6 +114,7 @@ namespace Networking_server
                         // Skicka en uppdaterad lista med de clienter som fortfarande är online (minus den som blev removed)...
                     }
                 }
+                Server.ListUsers();
 
                 foreach (ClientHandler tmpClient in clients)
                 {
@@ -133,10 +134,37 @@ namespace Networking_server
                     //}
                 }
             }
+            public static void ListUsers()
+            {
+                string listUser = "";
+                for (int i = 0; i < clients.Count; i++)
+                {
+                    if (!clients[i].tcpclient.Connected)
+                    {
+                        clients.RemoveAt(i);
+                        // Skicka en uppdaterad lista med de clienter som fortfarande är online (minus den som blev removed)...
+                    }
+                    else
+                    {
+                        listUser += clients[i].UserName + ';';
+                    }
+                }
+                User user2 = new User();
+                user2.TypeOfMessage = MessageType.UserList;
+                user2.Message = listUser;
 
+                foreach (ClientHandler tmpClient in clients)
+                {
+                    NetworkStream n = tmpClient.tcpclient.GetStream();
+                    BinaryWriter w = new BinaryWriter(n);
+                    w.Write(User.ToJson(user2));
+                    w.Flush();
+                }
+            }
             public void DisconnectClient(ClientHandler client)
             {
                 clients.Remove(client);
+                Server.ListUsers();
                 //Console.WriteLine("Client X has left the building...");
                 //Broadcast(client, "Client X has left the building...");
             }
@@ -181,6 +209,7 @@ namespace Networking_server
                             {
                                 this.UserName = tempUser.UserName;
                                 Server.clients.Add(this);
+                                Server.ListUsers();
                                 NetworkStream nn = tcpclient.GetStream();
                                 BinaryWriter w = new BinaryWriter(nn);
                                 w.Write(message);
