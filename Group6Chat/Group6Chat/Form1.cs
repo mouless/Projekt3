@@ -64,7 +64,8 @@ namespace Group6Chat
                     privateChatWindow.Add(privateChat);
 
                     privateChat.Text = $"{NameOfSelectedPrivateConvo} - Private Chat";
-                    temp.WriteToPrivateTextbox(u);
+                    privateChat.WriteToPrivateTextbox(u);
+                    //temp.WriteToPrivateTextbox(u);
                     privateChat.Show();
                 }
 
