@@ -40,7 +40,7 @@ namespace Group6Chat
             }
             else if (u.TypeOfMessage == MessageType.PrivateMessage)
             {
-
+                
             }
             else if (u.TypeOfMessage == MessageType.ErrorMessage)
             {
@@ -74,10 +74,10 @@ namespace Group6Chat
             buttonCancel.Text = "Cancel";
             buttonOk.DialogResult = DialogResult.OK;
             buttonCancel.DialogResult = DialogResult.Cancel;
-            label.SetBounds(9, 20, 372, 13);
-            textBox.SetBounds(12, 36, 372, 20);
-            buttonOk.SetBounds(228, 72, 75, 23);
-            buttonCancel.SetBounds(309, 72, 75, 23);
+            label.SetBounds(9, 20, 272, 13);
+            textBox.SetBounds(12, 36, 272, 20);
+            buttonOk.SetBounds(128, 72, 75, 23);
+            buttonCancel.SetBounds(209, 72, 75, 23);
 
             insertUserName.ClientSize = new Size(296, 107);
             insertUserName.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
@@ -156,7 +156,7 @@ namespace Group6Chat
 
         private void listBoxParticipants_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

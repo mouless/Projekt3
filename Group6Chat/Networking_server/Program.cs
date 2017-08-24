@@ -111,7 +111,7 @@ namespace Networking_server
                     if (!clients[i].tcpclient.Connected)
                     {
                         clients.RemoveAt(i);
-                        //i--;
+                        // Skicka en uppdaterad lista med de clienter som fortfarande är online (minus den som blev removed)...
                     }
                 }
 

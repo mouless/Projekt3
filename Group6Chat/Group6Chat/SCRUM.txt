@@ -29,5 +29,13 @@ De kommande 24h ska vi:
 	Kolla vad det är för Message-type på meddelandet som skickas (Message, Private Message, UserName).
 
 2017-08-24 - Daily SCRUM:
-	
+De senaste 24h gjorde vi:
+	Göra en bekräftelse på lyckad anslutning till servern.
+	Kolla vad det är för Message-type på meddelandet som skickas (Message, Private Message, UserName, ErrorMessage).
+	Kan inte skriva in UserName bestående av blanksteg eller kortare än 2 bokstäver, eller längre än 14.
+De kommande 24h ska vi:
+	Registrering av användare i en databas.
+	Databas för persistering av chatlog samt användarnamn (kanske lösenord).
+	Skicka information om vilken client som nu är nedkopplad från servern.
+	Fixa en ny form för privat chat funktionalitet.
 
