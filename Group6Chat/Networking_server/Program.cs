@@ -103,6 +103,7 @@ namespace Networking_server
                 User user2 = new User();
                 user2.TypeOfMessage = MessageType.UserList;
                 user2.Message = listUser;
+                user2.UserName = "PHANTOM USER";
 
                 foreach (ClientHandler tmpClient in clients)
                 {
