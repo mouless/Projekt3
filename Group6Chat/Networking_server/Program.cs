@@ -57,14 +57,14 @@ namespace Networking_server
 
             public void Broadcast(ClientHandler client, string message)
             {
-                for (int i = 0; i < clients.Count; i++)
-                {
-                    if (!clients[i].tcpclient.Connected)
-                    {
-                        clients.RemoveAt(i);
-                        // Skicka en uppdaterad lista med de clienter som fortfarande är online (minus den som blev removed)...
-                    }
-                }
+                //for (int i = 0; i < clients.Count; i++)
+                //{
+                //    if (!clients[i].tcpclient.Connected)
+                //    {
+                //        clients.RemoveAt(i);
+                //        // Skicka en uppdaterad lista med de clienter som fortfarande är online (minus den som blev removed)...
+                //    }
+                //}
                 Server.ListUsers();
 
                 foreach (ClientHandler tmpClient in clients)
@@ -90,15 +90,15 @@ namespace Networking_server
                 string listUser = "";
                 for (int i = 0; i < clients.Count; i++)
                 {
-                    //if (!clients[i].tcpclient.Connected)
-                    //{
-                    //    clients.RemoveAt(i);
-                    //    // Skicka en uppdaterad lista med de clienter som fortfarande är online (minus den som blev removed)...
-                    //}
-                    //else
-                    //{
+                    if (!clients[i].tcpclient.Connected)
+                    {
+                        clients.RemoveAt(i);
+                        // Skicka en uppdaterad lista med de clienter som fortfarande är online (minus den som blev removed)...
+                    }
+                    else
+                    {
                         listUser += clients[i].UserName + ';';
-                    //}
+                    }
                 }
                 User user2 = new User();
                 user2.TypeOfMessage = MessageType.UserList;
