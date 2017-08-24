@@ -205,6 +205,10 @@ namespace Group6Chat
             {
                 btnPrivateChat.Enabled = true;
             }
+            else
+            {
+                btnPrivateChat.Enabled = false;
+            }
 
         }
 
