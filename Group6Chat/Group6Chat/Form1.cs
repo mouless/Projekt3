@@ -48,7 +48,7 @@ namespace Group6Chat
             else if (u.TypeOfMessage == MessageType.UserName)
             {
                 UniqueUserName = u.UserName;
-                MessageBox.Show("You're connected... brah!");
+                MessageBox.Show($"You're connected... {UniqueUserName} brah!");
             }
             else if (u.TypeOfMessage == MessageType.PrivateMessage)
             {
@@ -60,10 +60,11 @@ namespace Group6Chat
                 }
                 else
                 {
-                    PrivateChatForm privateChat = new PrivateChatForm(UniqueUserName, NameOfSelectedPrivateConvo, HostServer);
+                    PrivateChatForm privateChat = new PrivateChatForm(NameOfSelectedPrivateConvo, UniqueUserName, HostServer);
                     privateChatWindow.Add(privateChat);
 
                     privateChat.Text = $"{NameOfSelectedPrivateConvo} - Private Chat";
+                    temp.WriteToPrivateTextbox(u);
                     privateChat.Show();
                 }
 
