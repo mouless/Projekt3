@@ -52,6 +52,19 @@ namespace Group6Chat
             }
             else if (u.TypeOfMessage == MessageType.PrivateMessage)
             {
+                //bool isNotList = true;
+                //foreach (var xXx in privateChatWindow)
+                //{
+                //    if (xXx.ReceiverOfPrivateMessage == u.Receiver)
+                //    {
+                //        xXx.WriteToPrivateTextbox(u);
+                //        isNotList = false;
+                //    }
+                //    else if (isNotList == false)
+                //    {
+
+                //    }
+                //}
 
                 var temp = privateChatWindow.Find(x => x.ReceiverOfPrivateMessage == u.Receiver);
                 if (temp != null)
@@ -66,7 +79,6 @@ namespace Group6Chat
 
                     privateChat.Text = $"{NameOfSelectedPrivateConvo} - Private Chat";
                     privateChat.WriteToPrivateTextbox(u);
-                    //temp.WriteToPrivateTextbox(u);
                     privateChat.Show();
                 }
 
