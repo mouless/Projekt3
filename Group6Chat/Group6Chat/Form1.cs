@@ -67,6 +67,7 @@ namespace Group6Chat
                 User toDisconnect = new User();
                 toDisconnect.TypeOfMessage = MessageType.Quit;
                 toDisconnect.UserName = UniqueUserName;
+                toDisconnect.Message = "I'm outta here!!!";
 
                 NetworkStream n = HostServer.GetStream();
                 BinaryWriter w = new BinaryWriter(n);
