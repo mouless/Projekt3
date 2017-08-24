@@ -78,6 +78,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
@@ -96,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Eggplant.ico" />
+    <None Include="Resources\page-background-default.jpg" />
     <Content Include="SCRUM.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
