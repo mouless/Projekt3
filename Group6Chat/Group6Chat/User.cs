@@ -13,7 +13,8 @@ namespace Group6Chat
         PrivateMessage,
         Message,
         ErrorMessage,
-        UserList
+        UserList,
+        Quit
     }
     public class User
     {
@@ -34,6 +35,10 @@ namespace Group6Chat
             u.Message = message;
             u.TypeOfMessage = messageType;
             return JsonConvert.SerializeObject(u);
+        }
+        public static string ToJson(User u)
+        {
+            return User.ToJson(u.UserName, u.Message, u.TypeOfMessage);
         }
     }
 }

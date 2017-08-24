@@ -57,55 +57,6 @@ namespace Networking_server
 
             public void Broadcast(ClientHandler client, string message)
             {
-                //for (int i = clients.Count - 1; i >= 0; i--)
-                //{
-                //    if (!clients[i].tcpclient.Connected)
-                //    {
-                //        //string u = JsonConvert.SerializeObject(clients[i].UserName);
-                //        //NetworkStream nnn = clients[i].tcpclient.GetStream();
-                //        //BinaryWriter wwww = new BinaryWriter(nnn);
-                //        //wwww.Write(u);
-                //        //wwww.Flush();
-
-                //        clients.RemoveAt(i);
-                //        i--;
-
-                //        //i = clients.Count;
-                //        // Se till att borttagning från listboxen funkar...
-                //    }
-                //    if (clients[i] != client || clients[i] == client)
-                //    {
-                //        NetworkStream n = clients[i].tcpclient.GetStream();
-                //        BinaryWriter w = new BinaryWriter(n);
-                //        w.Write(message);
-                //        w.Flush();
-                //    }
-                //}
-
-                //for (int i = 0; i < clients.Count; i++)
-                //{
-                //    if (!clients[i].tcpclient.Connected)
-                //    {
-                //        //string u = JsonConvert.SerializeObject(clients[i].UserName);
-                //        //NetworkStream nnn = clients[i].tcpclient.GetStream();
-                //        //BinaryWriter wwww = new BinaryWriter(nnn);
-                //        //wwww.Write(u);
-                //        //wwww.Flush();
-
-                //        //clients.RemoveAt(i);
-                //        //i--;
-
-                //        //i = clients.Count;
-                //        // Se till att borttagning från listboxen funkar...
-                //    }
-                //    if (clients[i] != client || clients[i] == client)
-                //    {
-                //        NetworkStream n = clients[i].tcpclient.GetStream();
-                //        BinaryWriter w = new BinaryWriter(n);
-                //        w.Write(message);
-                //        w.Flush();
-                //    }
-                //}
                 for (int i = 0; i < clients.Count; i++)
                 {
                     if (!clients[i].tcpclient.Connected)
@@ -188,18 +139,17 @@ namespace Networking_server
             {
                 try
                 {
-                    string message = "";
-                    //while (UserName != null)
-                    //{
-                    //    // Kolla så att UserName är unikt eller inte
-                    //    NetworkStream n = tcpclient.GetStream();
-                    //    message = new BinaryReader(n).ReadString();
-                    //}
-                    while (!message.Equals("quit"))
+                    // Skriva ut "quit" när någon användare har stängt av programmet
+                    bool koll = true;
+                    while (koll)
                     {
                         NetworkStream n = tcpclient.GetStream();
-                        message = new BinaryReader(n).ReadString();
+                        string message = new BinaryReader(n).ReadString();
                         User tempUser = JsonConvert.DeserializeObject<User>(message);
+                        if (tempUser.TypeOfMessage == MessageType.Quit)
+                        {
+                            koll = false;
+                        }
 
                         if (tempUser.TypeOfMessage == MessageType.UserName)
                         {
@@ -235,6 +185,7 @@ namespace Networking_server
                         {
                             myServer.Broadcast(this, message);
                         }
+                        
                         Console.WriteLine(message);
                     }
 

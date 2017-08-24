@@ -25,10 +25,6 @@ namespace Group6Chat
 
         public void WriteToTextbox(User u)
         {
-            //if (!listBoxParticipants.Items.Contains(u.UserName))
-            //{
-            //    listBoxParticipants.Items.Add(u.UserName);
-            //}
             if (u.TypeOfMessage == MessageType.UserList)
             {
                 if (listBoxParticipants.SelectedIndex > 0)
@@ -39,7 +35,10 @@ namespace Group6Chat
                 listBoxParticipants.Items.Clear();
                 foreach (var item in listOfUsers)
                 {
-                    listBoxParticipants.Items.Add(item);
+                    if (!(item == ""))
+                    {
+                        listBoxParticipants.Items.Add(item);
+                    }
                 }
             }
             else if (u.TypeOfMessage == MessageType.UserName)
@@ -63,7 +62,22 @@ namespace Group6Chat
 
         private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (UniqueUserName != "")
+            {
+                User toDisconnect = new User();
+                toDisconnect.TypeOfMessage = MessageType.Quit;
+                toDisconnect.UserName = UniqueUserName;
+
+                NetworkStream n = HostServer.GetStream();
+                BinaryWriter w = new BinaryWriter(n);
+                w.Write(User.ToJson(toDisconnect));
+                w.Flush();
+
+                Application.Exit();
+
+            }
             Application.Exit();
+
         }
 
         public void textBoxConvo_TextChanged(object sender, EventArgs e)

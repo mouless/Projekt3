@@ -13,7 +13,8 @@ namespace Networking_server
         PrivateMessage,
         Message,
         ErrorMessage,
-        UserList
+        UserList,
+        Quit
     }
     public class User
     {
