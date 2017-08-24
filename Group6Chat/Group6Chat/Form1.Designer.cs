@@ -34,11 +34,12 @@
             this.lblYourNameHere = new System.Windows.Forms.Label();
             this.listBoxParticipants = new System.Windows.Forms.ListBox();
             this.labelOnlineUsers = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPrivateChat = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBoxConvo = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,14 +102,15 @@
             this.labelOnlineUsers.TabIndex = 5;
             this.labelOnlineUsers.Text = "Users online:";
             // 
-            // button1
+            // btnPrivateChat
             // 
-            this.button1.Location = new System.Drawing.Point(572, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 30);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Start private chat";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPrivateChat.Location = new System.Drawing.Point(572, 219);
+            this.btnPrivateChat.Name = "btnPrivateChat";
+            this.btnPrivateChat.Size = new System.Drawing.Size(131, 30);
+            this.btnPrivateChat.TabIndex = 6;
+            this.btnPrivateChat.Text = "Start private chat";
+            this.btnPrivateChat.UseVisualStyleBackColor = true;
+            this.btnPrivateChat.Click += new System.EventHandler(this.btnPrivateChat_Click);
             // 
             // menuStrip1
             // 
@@ -144,12 +146,24 @@
             this.exitProgramToolStripMenuItem.Text = "Exit program";
             this.exitProgramToolStripMenuItem.Click += new System.EventHandler(this.exitProgramToolStripMenuItem_Click);
             // 
+            // richTextBoxConvo
+            // 
+            this.richTextBoxConvo.BackColor = System.Drawing.SystemColors.Window;
+            this.richTextBoxConvo.Location = new System.Drawing.Point(431, 255);
+            this.richTextBoxConvo.Name = "richTextBoxConvo";
+            this.richTextBoxConvo.ReadOnly = true;
+            this.richTextBoxConvo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.richTextBoxConvo.Size = new System.Drawing.Size(272, 234);
+            this.richTextBoxConvo.TabIndex = 8;
+            this.richTextBoxConvo.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 549);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.richTextBoxConvo);
+            this.Controls.Add(this.btnPrivateChat);
             this.Controls.Add(this.labelOnlineUsers);
             this.Controls.Add(this.listBoxParticipants);
             this.Controls.Add(this.lblYourNameHere);
@@ -176,11 +190,12 @@
         private System.Windows.Forms.Label lblYourNameHere;
         private System.Windows.Forms.ListBox listBoxParticipants;
         private System.Windows.Forms.Label labelOnlineUsers;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPrivateChat;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitProgramToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectToServerToolStripMenuItem;
+        private System.Windows.Forms.RichTextBox richTextBoxConvo;
     }
 }
 

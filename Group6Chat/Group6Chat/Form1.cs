@@ -49,6 +49,9 @@ namespace Group6Chat
             else if (u.TypeOfMessage == MessageType.Message)
             {
                 textBoxConvo.AppendText($"{u.UserName}: {u.Message}\r\n");
+                //richTextBoxConvo.Rtf = @"{\rtf1\ansi \b" + u.UserName + "\b0.}";
+                //richTextBoxConvo.AppendText(richTextBoxConvo.Rtf);
+                //richTextBoxConvo.AppendText($"{u.UserName}: {u.Message}\r\n");
             }
             else if (u.TypeOfMessage == MessageType.PrivateMessage)
             {
@@ -185,6 +188,11 @@ namespace Group6Chat
         private void listBoxParticipants_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPrivateChat_Click(object sender, EventArgs e)
+        {
+            Form StartPrivateChat = new Form();
         }
     }
 }
