@@ -20,6 +20,7 @@ namespace Group6Chat
         public Form1()
         {
             InitializeComponent();
+            this.AcceptButton = btnSend;
         }
 
         public void WriteToTextbox(User u)
@@ -88,14 +89,27 @@ namespace Group6Chat
 
             insertUserName.ShowDialog();
 
-            if (textBox.Text.Length > 1)
+
+            if (textBox.Text.Length > 1 && textBox.Text.Length < 14)
             {
-                string message = User.ToJson(textBox.Text, textBox.Text, MessageType.UserName);
-                HostServer = Networking_client.StartTheClient(this);
-                NetworkStream n = HostServer.GetStream();
-                BinaryWriter w = new BinaryWriter(n);
-                w.Write(message);
-                w.Flush();
+                string trimmedUserName = textBox.Text.Trim();
+                if (trimmedUserName.Length > 1 && trimmedUserName.Length < 14)
+                {
+                    string message = User.ToJson(trimmedUserName, trimmedUserName, MessageType.UserName);
+                    HostServer = Networking_client.StartTheClient(this);
+                    NetworkStream n = HostServer.GetStream();
+                    BinaryWriter w = new BinaryWriter(n);
+                    w.Write(message);
+                    w.Flush();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username! Try again.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid username! Try again.");
             }
         }
 
@@ -103,23 +117,30 @@ namespace Group6Chat
         {
             //string userName = UniqueUserName; //Get the userName from the accepted unique UserName
             string input = this.textBoxInput.Text;
-            string message = User.ToJson(UniqueUserName, input, MessageType.Message);
-            textBoxInput.Text = "";
-            try
+            if (!(input.Length == 0))
             {
-                if (!message.Equals("quit"))
+                string message = User.ToJson(UniqueUserName, input, MessageType.Message);
+                textBoxInput.Text = "";
+                try
                 {
-                    NetworkStream n = HostServer.GetStream();
-                    BinaryWriter w = new BinaryWriter(n);
-                    w.Write(message);
-                    w.Flush();
+                    if (!message.Equals("quit"))
+                    {
+                        NetworkStream n = HostServer.GetStream();
+                        BinaryWriter w = new BinaryWriter(n);
+                        w.Write(message);
+                        w.Flush();
+                    }
+                    else
+                        HostServer.Close();
                 }
-                else
-                    HostServer.Close();
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
+
             }
         }
 
@@ -130,8 +151,7 @@ namespace Group6Chat
 
         private void textBoxInput_TextChanged(object sender, EventArgs e)
         {
-            //textBoxInput.AcceptsReturn = false;
-            //this.AcceptButton = btnSend;
+            
         }
 
         private void listBoxParticipants_SelectedIndexChanged(object sender, EventArgs e)

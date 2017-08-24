@@ -63,9 +63,11 @@
             // 
             // textBoxConvo
             // 
+            this.textBoxConvo.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxConvo.Location = new System.Drawing.Point(12, 65);
             this.textBoxConvo.Multiline = true;
             this.textBoxConvo.Name = "textBoxConvo";
+            this.textBoxConvo.ReadOnly = true;
             this.textBoxConvo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxConvo.Size = new System.Drawing.Size(412, 424);
             this.textBoxConvo.TabIndex = 2;
@@ -86,7 +88,7 @@
             this.listBoxParticipants.ItemHeight = 16;
             this.listBoxParticipants.Location = new System.Drawing.Point(431, 65);
             this.listBoxParticipants.Name = "listBoxParticipants";
-            this.listBoxParticipants.Size = new System.Drawing.Size(235, 148);
+            this.listBoxParticipants.Size = new System.Drawing.Size(272, 148);
             this.listBoxParticipants.TabIndex = 4;
             this.listBoxParticipants.SelectedIndexChanged += new System.EventHandler(this.listBoxParticipants_SelectedIndexChanged);
             // 
@@ -101,7 +103,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(535, 219);
+            this.button1.Location = new System.Drawing.Point(572, 219);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 30);
             this.button1.TabIndex = 6;

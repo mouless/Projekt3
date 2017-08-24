@@ -28,3 +28,6 @@ De kommande 24h ska vi:
 	Göra en bekräftelse på lyckad anslutning till servern.
 	Kolla vad det är för Message-type på meddelandet som skickas (Message, Private Message, UserName).
 
+2017-08-24 - Daily SCRUM:
+	
+
