@@ -30,7 +30,6 @@
         {
             this.btnSend = new System.Windows.Forms.Button();
             this.textBoxInput = new System.Windows.Forms.TextBox();
-            this.textBoxConvo = new System.Windows.Forms.TextBox();
             this.lblYourNameHere = new System.Windows.Forms.Label();
             this.listBoxParticipants = new System.Windows.Forms.ListBox();
             this.labelOnlineUsers = new System.Windows.Forms.Label();
@@ -61,18 +60,6 @@
             this.textBoxInput.Size = new System.Drawing.Size(412, 42);
             this.textBoxInput.TabIndex = 1;
             this.textBoxInput.TextChanged += new System.EventHandler(this.textBoxInput_TextChanged);
-            // 
-            // textBoxConvo
-            // 
-            this.textBoxConvo.BackColor = System.Drawing.SystemColors.Window;
-            this.textBoxConvo.Location = new System.Drawing.Point(12, 65);
-            this.textBoxConvo.Multiline = true;
-            this.textBoxConvo.Name = "textBoxConvo";
-            this.textBoxConvo.ReadOnly = true;
-            this.textBoxConvo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxConvo.Size = new System.Drawing.Size(412, 424);
-            this.textBoxConvo.TabIndex = 2;
-            this.textBoxConvo.TextChanged += new System.EventHandler(this.textBoxConvo_TextChanged);
             // 
             // lblYourNameHere
             // 
@@ -149,11 +136,11 @@
             // richTextBoxConvo
             // 
             this.richTextBoxConvo.BackColor = System.Drawing.SystemColors.Window;
-            this.richTextBoxConvo.Location = new System.Drawing.Point(431, 255);
+            this.richTextBoxConvo.Location = new System.Drawing.Point(12, 65);
             this.richTextBoxConvo.Name = "richTextBoxConvo";
             this.richTextBoxConvo.ReadOnly = true;
             this.richTextBoxConvo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBoxConvo.Size = new System.Drawing.Size(272, 234);
+            this.richTextBoxConvo.Size = new System.Drawing.Size(412, 424);
             this.richTextBoxConvo.TabIndex = 8;
             this.richTextBoxConvo.Text = "";
             // 
@@ -167,7 +154,6 @@
             this.Controls.Add(this.labelOnlineUsers);
             this.Controls.Add(this.listBoxParticipants);
             this.Controls.Add(this.lblYourNameHere);
-            this.Controls.Add(this.textBoxConvo);
             this.Controls.Add(this.textBoxInput);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.menuStrip1);
@@ -187,7 +173,6 @@
 
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.TextBox textBoxInput;
-        private System.Windows.Forms.TextBox textBoxConvo;
         private System.Windows.Forms.Label lblYourNameHere;
         private System.Windows.Forms.ListBox listBoxParticipants;
         private System.Windows.Forms.Label labelOnlineUsers;

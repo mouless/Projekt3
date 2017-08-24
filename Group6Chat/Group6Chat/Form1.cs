@@ -52,12 +52,14 @@ namespace Group6Chat
                 if (!(TimeStamp == DateTime.Now.ToShortTimeString()))
                 {
                     TimeStamp = DateTime.Now.ToShortTimeString();
-                    textBoxConvo.AppendText($"{TimeStamp}\r\n");
+                    richTextBoxConvo.AppendText($"{TimeStamp}\r\n");
                 }
-                textBoxConvo.AppendText($"{u.UserName}: {u.Message}\r\n");
-                //richTextBoxConvo.Rtf = @"{\rtf1\ansi \b" + u.UserName + "\b0.}";
-                //richTextBoxConvo.AppendText(richTextBoxConvo.Rtf);
-                //richTextBoxConvo.AppendText($"{u.UserName}: {u.Message}\r\n");
+                richTextBoxConvo.SelectionFont = new Font(richTextBoxConvo.Font, FontStyle.Bold);
+                richTextBoxConvo.AppendText(u.UserName + ": ");
+                richTextBoxConvo.SelectionFont = new Font(richTextBoxConvo.Font, FontStyle.Regular);
+                richTextBoxConvo.AppendText(u.Message + "\r");
+
+                //textBoxConvo.AppendText($"{u.UserName}: {u.Message}\r\n");
             }
             else if (u.TypeOfMessage == MessageType.PrivateMessage)
             {
