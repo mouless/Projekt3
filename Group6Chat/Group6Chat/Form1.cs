@@ -17,6 +17,8 @@ namespace Group6Chat
         TcpClient HostServer;
         public static string UniqueUserName { get; set; }
         public string TimeStamp { get; set; } = "";
+        public int SelectedForPrivateConvo { get; set; }
+        public string NameOfSelectedPrivateConvo { get; set; }
 
         public Form1()
         {
@@ -30,8 +32,7 @@ namespace Group6Chat
             {
                 if (listBoxParticipants.SelectedIndex > 0)
                 {
-                    int user = listBoxParticipants.SelectedIndex;
-                    string selectedUserForPrivateChat = listBoxParticipants.SelectedItem.ToString();
+                    SelectedForPrivateConvo = listBoxParticipants.SelectedIndex;
                 }
                 string[] listOfUsers = u.Message.Split(';');
                 listBoxParticipants.Items.Clear();
@@ -197,12 +198,21 @@ namespace Group6Chat
 
         private void listBoxParticipants_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SelectedForPrivateConvo = listBoxParticipants.SelectedIndex;
+            NameOfSelectedPrivateConvo = listBoxParticipants.Items[SelectedForPrivateConvo].ToString();
+
+            if (SelectedForPrivateConvo >= 0 && NameOfSelectedPrivateConvo != UniqueUserName)
+            {
+                btnPrivateChat.Enabled = true;
+            }
 
         }
 
         private void btnPrivateChat_Click(object sender, EventArgs e)
         {
             PrivateChatForm privateChat = new PrivateChatForm();
+
+            privateChat.Text = $"{NameOfSelectedPrivateConvo} - Private Chat";
             privateChat.Show();
         }
 

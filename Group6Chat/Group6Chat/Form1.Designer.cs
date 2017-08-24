@@ -92,6 +92,7 @@
             // 
             // btnPrivateChat
             // 
+            this.btnPrivateChat.Enabled = false;
             this.btnPrivateChat.Location = new System.Drawing.Point(572, 219);
             this.btnPrivateChat.Name = "btnPrivateChat";
             this.btnPrivateChat.Size = new System.Drawing.Size(131, 30);
