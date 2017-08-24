@@ -39,3 +39,23 @@ De kommande 24h ska vi:
 	Skicka information om vilken client som nu är nedkopplad från servern.
 	Fixa en ny form för privat chat funktionalitet.
 
+
+
+
+	13:51
+	WRB: Hej
+	WRB: Hej
+	WRB: Hej
+	WRB: Hej
+	WRB: Hej
+	WRB: Hej
+	13:52
+	WRB: Hej
+	WRB: Hej
+	WRB: Hej
+	WRB: Hej
+	13:53
+	WRB: Hej
+	WRB: Hej
+	WRB: Hej
+	WRB: Hej

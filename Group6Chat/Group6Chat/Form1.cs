@@ -16,6 +16,7 @@ namespace Group6Chat
     {
         TcpClient HostServer;
         public static string UniqueUserName { get; set; }
+        public string TimeStamp { get; set; } = "";
 
         public Form1()
         {
@@ -48,6 +49,11 @@ namespace Group6Chat
             }
             else if (u.TypeOfMessage == MessageType.Message)
             {
+                if (!(TimeStamp == DateTime.Now.ToShortTimeString()))
+                {
+                    TimeStamp = DateTime.Now.ToShortTimeString();
+                    textBoxConvo.AppendText($"{TimeStamp}\r\n");
+                }
                 textBoxConvo.AppendText($"{u.UserName}: {u.Message}\r\n");
                 //richTextBoxConvo.Rtf = @"{\rtf1\ansi \b" + u.UserName + "\b0.}";
                 //richTextBoxConvo.AppendText(richTextBoxConvo.Rtf);
@@ -65,7 +71,12 @@ namespace Group6Chat
 
         private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (UniqueUserName != "")
+            CloseClientInANiceWay();
+        }
+
+        private void CloseClientInANiceWay()
+        {
+            if (UniqueUserName != "" && UniqueUserName != null)
             {
                 User toDisconnect = new User();
                 toDisconnect.TypeOfMessage = MessageType.Quit;
@@ -78,10 +89,8 @@ namespace Group6Chat
                 w.Flush();
 
                 Application.Exit();
-
             }
             Application.Exit();
-
         }
 
         public void textBoxConvo_TextChanged(object sender, EventArgs e)
@@ -193,6 +202,11 @@ namespace Group6Chat
         private void btnPrivateChat_Click(object sender, EventArgs e)
         {
             Form StartPrivateChat = new Form();
+        }
+
+        private void exitProgramToolStripMenuItem_Click(object sender, FormClosingEventArgs e)
+        {
+            CloseClientInANiceWay();
         }
     }
 }
