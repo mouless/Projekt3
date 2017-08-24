@@ -31,6 +31,7 @@ namespace Group6Chat
                 if (listBoxParticipants.SelectedIndex > 0)
                 {
                     int user = listBoxParticipants.SelectedIndex;
+                    string selectedUserForPrivateChat = listBoxParticipants.SelectedItem.ToString();
                 }
                 string[] listOfUsers = u.Message.Split(';');
                 listBoxParticipants.Items.Clear();
@@ -58,8 +59,7 @@ namespace Group6Chat
                 richTextBoxConvo.AppendText(u.UserName + ": ");
                 richTextBoxConvo.SelectionFont = new Font(richTextBoxConvo.Font, FontStyle.Regular);
                 richTextBoxConvo.AppendText(u.Message + "\r");
-
-                //textBoxConvo.AppendText($"{u.UserName}: {u.Message}\r\n");
+                richTextBoxConvo.ScrollToCaret();
             }
             else if (u.TypeOfMessage == MessageType.PrivateMessage)
             {
@@ -130,7 +130,6 @@ namespace Group6Chat
             insertUserName.CancelButton = buttonCancel;
 
             insertUserName.ShowDialog();
-
 
             if (textBox.Text.Length > 1 && textBox.Text.Length < 14)
             {
@@ -203,7 +202,8 @@ namespace Group6Chat
 
         private void btnPrivateChat_Click(object sender, EventArgs e)
         {
-            Form StartPrivateChat = new Form();
+            PrivateChatForm privateChat = new PrivateChatForm();
+            privateChat.Show();
         }
 
         private void exitProgramToolStripMenuItem_Click(object sender, FormClosingEventArgs e)

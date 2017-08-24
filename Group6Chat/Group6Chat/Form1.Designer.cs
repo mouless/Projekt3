@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnSend = new System.Windows.Forms.Button();
             this.textBoxInput = new System.Windows.Forms.TextBox();
             this.lblYourNameHere = new System.Windows.Forms.Label();
@@ -157,6 +158,8 @@
             this.Controls.Add(this.textBoxInput);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Group6Chat";
