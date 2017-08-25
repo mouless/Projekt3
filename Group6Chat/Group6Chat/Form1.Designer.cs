@@ -56,6 +56,7 @@
             // textBoxInput
             // 
             this.textBoxInput.Location = new System.Drawing.Point(12, 495);
+            this.textBoxInput.MaxLength = 160;
             this.textBoxInput.Multiline = true;
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.Size = new System.Drawing.Size(412, 42);

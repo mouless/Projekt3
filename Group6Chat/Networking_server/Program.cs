@@ -197,9 +197,11 @@ namespace Networking_server
                             myServer.PrivateMessage(message, tempUser.Receiver);
                         }
 
-                        message = JsonConvert.SerializeObject(tempUser);
+                        //message = JsonConvert.SerializeObject(tempUser);
                         if (tempUser.TypeOfMessage == MessageType.Message)
                         {
+                            User tmpUser = InvokeProfanityFilter(tempUser);
+                            message = JsonConvert.SerializeObject(tmpUser);
                             myServer.Broadcast(this, message);
                         }
 
@@ -213,6 +215,29 @@ namespace Networking_server
                 {
                     Console.WriteLine(ex.Message);
                 }
+            }
+
+            private User InvokeProfanityFilter(User tempUser)
+            {
+                Console.WriteLine(tempUser.Message);
+                tempUser.Message = tempUser.Message.Replace("kuk", "***");
+                tempUser.Message = tempUser.Message.Replace("bög", "***");
+                tempUser.Message = tempUser.Message.Replace("hora", "***");
+                tempUser.Message = tempUser.Message.Replace(" slampa", "***");
+                tempUser.Message = tempUser.Message.Replace("idiot", "***");
+                tempUser.Message = tempUser.Message.Replace("jävla", "***");
+                tempUser.Message = tempUser.Message.Replace("fitta", "***");
+                tempUser.Message = tempUser.Message.Replace("<", "nice try, injection alert ");
+                tempUser.Message = tempUser.Message.Replace(">", "nice try, injection alert ");
+                tempUser.Message = tempUser.Message.Replace("{", "nice try, injection alert ");
+                tempUser.Message = tempUser.Message.Replace("}", "nice try, injection alert ");
+                tempUser.Message = tempUser.Message.Replace("/", "nice try, injection alert ");
+                tempUser.Message = tempUser.Message.Replace(@"\", "nice try, injection alert ");
+                Console.WriteLine(tempUser.Message);
+
+                //todo lägg till skydd mot injection i username
+
+                return tempUser;
             }
         }
     }
