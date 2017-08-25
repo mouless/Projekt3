@@ -33,7 +33,7 @@ namespace Group6Chat
             string input = this.textBoxPrivateInput.Text;
             if (!(input.Length == 0))
             {
-                string message = User.ToJson(SenderOfPrivateMessage, input, MessageType.PrivateMessage, ReceiverOfPrivateMessage);
+                string message = User.ToJson(ReceiverOfPrivateMessage, input, MessageType.PrivateMessage, SenderOfPrivateMessage);
                 textBoxPrivateInput.Text = "";
                 try
                 {
