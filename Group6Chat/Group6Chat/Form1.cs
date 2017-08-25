@@ -75,7 +75,7 @@ namespace Group6Chat
                 {
                     //TODO: FINNS DET REDAN ETT PRIVATECHATFÖNSTER ÖPPET, ÖPPNA FÖR GUDS SKULL INTE ÄNNU ETT FÖNSTER!!!
                     NameOfSelectedPrivateConvo = u.UserName;
-                    PrivateChatForm privateChat = new PrivateChatForm(NameOfSelectedPrivateConvo, UniqueUserName, HostServer);
+                    PrivateChatForm privateChat = new PrivateChatForm(UniqueUserName, NameOfSelectedPrivateConvo, HostServer);
                     privateChatWindow.Add(privateChat);
 
                     privateChat.Text = $"{NameOfSelectedPrivateConvo} - Private Chat";
