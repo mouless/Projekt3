@@ -157,6 +157,7 @@ namespace Group6Chat
             insertUserName.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
             insertUserName.ClientSize = new Size(Math.Max(300, label.Right + 10), insertUserName.ClientSize.Height);
             insertUserName.FormBorderStyle = FormBorderStyle.FixedDialog;
+            insertUserName.BackgroundImage = Properties.Resources.page_background_default;
 
             insertUserName.AcceptButton = buttonOk;
             insertUserName.CancelButton = buttonCancel;

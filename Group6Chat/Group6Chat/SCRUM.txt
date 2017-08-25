@@ -47,6 +47,7 @@ De kommande 24h ska vi:
 	Kolla varför man inte får mer än en fet-stil på UserName i privatchatten (samt varför den gamla historiken försvinner).
 	Fixa ljud.
 	Möjlighet att trycka på ENTER för att skicka meddelande i PrivateChatWindow (samt initialfokus på textbox-rutan vid inlogg).
+	Kolla varför vi fick en bugg i CloseInANiceWay().
 
 
 	13:51

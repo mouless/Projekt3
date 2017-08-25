@@ -24,7 +24,6 @@ namespace Group6Chat
             ReceiverOfPrivateMessage = receiver;
             SenderOfPrivateMessage = sender;
             HostServer = hostServer;
-            this.ActiveControl = textBoxPrivateInput;
             InitializeComponent();
         }
 
@@ -73,6 +72,12 @@ namespace Group6Chat
             richTextBoxPrivateConvo.SelectionFont = new Font(richTextBoxPrivateConvo.Font, FontStyle.Regular);
             richTextBoxPrivateConvo.AppendText(c.Message + "\r");
             richTextBoxPrivateConvo.ScrollToCaret();
+        }
+
+        private void PrivateChatForm_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = textBoxPrivateInput;
+            this.AcceptButton = btnPrivateSend;
         }
     }
 }

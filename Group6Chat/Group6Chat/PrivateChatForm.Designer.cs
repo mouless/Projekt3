@@ -87,6 +87,7 @@
             this.MaximizeBox = false;
             this.Name = "PrivateChatForm";
             this.Text = "PrivateChatForm";
+            this.Load += new System.EventHandler(this.PrivateChatForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
