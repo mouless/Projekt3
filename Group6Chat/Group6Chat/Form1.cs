@@ -75,10 +75,10 @@ namespace Group6Chat
                 {
                     //TODO: FINNS DET REDAN ETT PRIVATECHATFÖNSTER ÖPPET, ÖPPNA FÖR GUDS SKULL INTE ÄNNU ETT FÖNSTER!!!
                     //NameOfSelectedPrivateConvo = u.UserName;
-                    PrivateChatForm privateChat = new PrivateChatForm(UniqueUserName, u.Receiver, HostServer);
+                    PrivateChatForm privateChat = new PrivateChatForm(UniqueUserName, u.UserName, HostServer);
                     privateChatWindow.Add(privateChat);
 
-                    privateChat.Text = $"{u.Receiver} - Private Chat";
+                    privateChat.Text = $"{u.UserName} - Private Chat";
                     privateChat.WriteToPrivateTextbox(u);
                     privateChat.Show();
                     // Lägg in det störiga ljudet
