@@ -176,13 +176,13 @@ namespace Group6Chat
 
                 if (trimmedUserName.Length > 1 && trimmedUserName.Length < 14)
                 {
-                    connectToServerToolStripMenuItem.Enabled = false;
                     string message = User.ToJson(trimmedUserName, trimmedUserName, MessageType.UserName);
                     HostServer = Networking_client.StartTheClient(this);
                     NetworkStream n = HostServer.GetStream();
                     BinaryWriter w = new BinaryWriter(n);
                     w.Write(message);
                     w.Flush();
+                    connectToServerToolStripMenuItem.Enabled = false;
                 }
                 else
                 {
