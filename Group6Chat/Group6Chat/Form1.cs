@@ -186,11 +186,13 @@ namespace Group6Chat
                 }
                 else
                 {
+                    connectToServerToolStripMenuItem.Enabled = true;
                     MessageBox.Show("Invalid username! Try again.");
                 }
             }
             else
             {
+                    connectToServerToolStripMenuItem.Enabled = true;
                 MessageBox.Show("Invalid username! Try again.");
             }
         }
