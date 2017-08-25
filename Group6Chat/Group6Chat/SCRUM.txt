@@ -39,7 +39,14 @@ De kommande 24h ska vi:
 	Skicka information om vilken client som nu är nedkopplad från servern.
 	Fixa en ny form för privat chat funktionalitet.
 
+2017-08-25  Daily SCRUM:
+De senaste 24h gjorde vi:
 
+De kommande 24h ska vi:
+	Inte kunna öppna flera connections.
+	Kolla varför man inte får mer än en fet-stil på UserName i privatchatten (samt varför den gamla historiken försvinner).
+	Fixa ljud.
+	Möjlighet att trycka på ENTER för att skicka meddelande i PrivateChatWindow (samt initialfokus på textbox-rutan vid inlogg).
 
 
 	13:51

@@ -24,6 +24,7 @@ namespace Group6Chat
             ReceiverOfPrivateMessage = receiver;
             SenderOfPrivateMessage = sender;
             HostServer = hostServer;
+            this.ActiveControl = textBoxPrivateInput;
             InitializeComponent();
         }
 
