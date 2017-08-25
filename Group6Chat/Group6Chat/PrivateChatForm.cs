@@ -34,7 +34,7 @@ namespace Group6Chat
             if (!(input.Length == 0))
             {
                 string message = User.ToJson(SenderOfPrivateMessage, input, MessageType.PrivateMessage, ReceiverOfPrivateMessage);
-                string message2 = User.ToJson(ReceiverOfPrivateMessage, input, MessageType.PrivateMessage, SenderOfPrivateMessage);
+                //string message2 = User.ToJson(ReceiverOfPrivateMessage, input, MessageType.PrivateMessage, SenderOfPrivateMessage);
                 textBoxPrivateInput.Text = "";
                 try
                 {
@@ -43,7 +43,7 @@ namespace Group6Chat
                         NetworkStream n = HostServer.GetStream();
                         BinaryWriter w = new BinaryWriter(n);
                         w.Write(message);
-                        w.Write(message2);
+                        //w.Write(message2);
                         w.Flush();
                     }
                     else
