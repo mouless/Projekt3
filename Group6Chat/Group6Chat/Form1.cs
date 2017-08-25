@@ -103,6 +103,7 @@ namespace Group6Chat
             }
             else if (u.TypeOfMessage == MessageType.ErrorMessage)
             {
+                connectToServerToolStripMenuItem.Enabled = true;
                 MessageBox.Show("Username is already taken. Please try something else!");
             }
         }
@@ -192,7 +193,7 @@ namespace Group6Chat
             }
             else
             {
-                    connectToServerToolStripMenuItem.Enabled = true;
+                connectToServerToolStripMenuItem.Enabled = true;
                 MessageBox.Show("Invalid username! Try again.");
             }
         }
