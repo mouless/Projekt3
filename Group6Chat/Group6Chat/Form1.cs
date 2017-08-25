@@ -19,7 +19,7 @@ namespace Group6Chat
         public string TimeStamp { get; set; } = "";
         public int SelectedForPrivateConvo { get; set; }
         public string NameOfSelectedPrivateConvo { get; set; }
-        List<PrivateChatForm> privateChatWindow = new List<PrivateChatForm>();
+        static List<PrivateChatForm> privateChatWindow = new List<PrivateChatForm>();
 
         public Form1()
         {
@@ -66,7 +66,7 @@ namespace Group6Chat
                 //    }
                 //}
 
-                var temp = privateChatWindow.FindLast(x => x.SenderOfPrivateMessage == u.Receiver);
+                var temp = privateChatWindow.Find(x => x.SenderOfPrivateMessage == u.Receiver);
                 //var temp = privateChatWindow.FindAll(x => x.SenderOfPrivateMessage == u.Receiver);
                 if (temp != null && privateChatWindow.Count > 0)
                 {
