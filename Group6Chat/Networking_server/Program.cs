@@ -219,23 +219,22 @@ namespace Networking_server
 
             private User InvokeProfanityFilter(User tempUser)
             {
-                Console.WriteLine(tempUser.Message);
                 tempUser.Message = tempUser.Message.Replace("kuk", "***");
-                tempUser.Message = tempUser.Message.Replace("bög", "***");
-                tempUser.Message = tempUser.Message.Replace("hora", "***");
-                tempUser.Message = tempUser.Message.Replace(" slampa", "***");
+                tempUser.Message = tempUser.Message.Replace("korv", "Borg");
                 tempUser.Message = tempUser.Message.Replace("idiot", "***");
                 tempUser.Message = tempUser.Message.Replace("jävla", "***");
-                tempUser.Message = tempUser.Message.Replace("fitta", "***");
+                tempUser.Message = tempUser.Message.Replace("mullbänk", "***");
+                tempUser.Message = tempUser.Message.Replace("Mullbänk", "***");
+                tempUser.Message = tempUser.Message.Replace("JavaScript", "C# IS KING!");
+                tempUser.Message = tempUser.Message.Replace("javaScript", "C# RULES!");
+                tempUser.Message = tempUser.Message.Replace("Java", "I LOVE C#");
+                tempUser.Message = tempUser.Message.Replace("java", "I LOVE C#");
                 tempUser.Message = tempUser.Message.Replace("<", "nice try, injection alert ");
                 tempUser.Message = tempUser.Message.Replace(">", "nice try, injection alert ");
                 tempUser.Message = tempUser.Message.Replace("{", "nice try, injection alert ");
                 tempUser.Message = tempUser.Message.Replace("}", "nice try, injection alert ");
                 tempUser.Message = tempUser.Message.Replace("/", "nice try, injection alert ");
                 tempUser.Message = tempUser.Message.Replace(@"\", "nice try, injection alert ");
-                Console.WriteLine(tempUser.Message);
-
-                //todo lägg till skydd mot injection i username
 
                 return tempUser;
             }

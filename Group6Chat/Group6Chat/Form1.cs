@@ -279,7 +279,6 @@ namespace Group6Chat
 
         private string InvokeProfanityUserName(string profanityName)
         {
-            //string tempName = profanityName;
             profanityName = profanityName.Replace("kuk", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
             profanityName = profanityName.Replace("bög", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
             profanityName = profanityName.Replace("hora", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
@@ -298,6 +297,5 @@ namespace Group6Chat
 
             return profanityName;
         }
-
     }
 }
