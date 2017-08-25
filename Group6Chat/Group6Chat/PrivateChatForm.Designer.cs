@@ -75,6 +75,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Group6Chat.Properties.Resources.page_background_default;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(543, 549);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxPrivateInput);
