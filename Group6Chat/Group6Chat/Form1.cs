@@ -176,6 +176,7 @@ namespace Group6Chat
 
                 if (trimmedUserName.Length > 1 && trimmedUserName.Length < 14)
                 {
+                    connectToServerToolStripMenuItem.Enabled = false;
                     string message = User.ToJson(trimmedUserName, trimmedUserName, MessageType.UserName);
                     HostServer = Networking_client.StartTheClient(this);
                     NetworkStream n = HostServer.GetStream();
@@ -244,7 +245,7 @@ namespace Group6Chat
 
                 if (SelectedForPrivateConvo >= 0 && NameOfSelectedPrivateConvo != UniqueUserName)
                 {
-                    btnPrivateChat.Enabled = true;
+                    //btnPrivateChat.Enabled = true;
                 }
                 else
                 {
@@ -279,13 +280,10 @@ namespace Group6Chat
 
         private string InvokeProfanityUserName(string profanityName)
         {
+            profanityName = profanityName.Replace("admin", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
             profanityName = profanityName.Replace("kuk", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
-            profanityName = profanityName.Replace("bög", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
-            profanityName = profanityName.Replace("hora", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
-            profanityName = profanityName.Replace(" slampa", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
             profanityName = profanityName.Replace("idiot", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
             profanityName = profanityName.Replace("jävla", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
-            profanityName = profanityName.Replace("fitta", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
             profanityName = profanityName.Replace("<", "nice try, injection alertnice try, injection alert nice try, injection alert nice try, injection alert  ");
             profanityName = profanityName.Replace(">", "nice try, injection alert nice try, injection alert nice try, injection alert ");
             profanityName = profanityName.Replace("{", "nice try, injection alertnice try, injection alert nice try, injection alert nice try, injection alert  ");
@@ -294,6 +292,7 @@ namespace Group6Chat
             profanityName = profanityName.Replace(@"\", "nice try, injection alertnice try, injection alert nice try, injection alert  ");
             profanityName = profanityName.Replace(@"Everyone", "JavaLover");
             profanityName = profanityName.Replace(@"everyone", "JavaLover");
+            profanityName = profanityName.Replace(@"EVERYONE", "JavaLover");
 
             return profanityName;
         }
