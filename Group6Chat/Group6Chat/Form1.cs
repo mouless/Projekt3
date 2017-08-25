@@ -280,20 +280,19 @@ namespace Group6Chat
 
         private string InvokeProfanityUserName(string profanityName)
         {
-            profanityName = profanityName.Replace("admin", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
-            profanityName = profanityName.Replace("kuk", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
-            profanityName = profanityName.Replace("idiot", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
-            profanityName = profanityName.Replace("jävla", "***nice try, injection alert nice try, injection alert nice try, injection alert ");
-            profanityName = profanityName.Replace("<", "nice try, injection alertnice try, injection alert nice try, injection alert nice try, injection alert  ");
-            profanityName = profanityName.Replace(">", "nice try, injection alert nice try, injection alert nice try, injection alert ");
-            profanityName = profanityName.Replace("{", "nice try, injection alertnice try, injection alert nice try, injection alert nice try, injection alert  ");
-            profanityName = profanityName.Replace("}", "nice try, injection alertnice try, injection alert nice try, injection alert  ");
-            profanityName = profanityName.Replace("/", "nice try, injection alertnice try, injection alert nice try, injection alert  ");
-            profanityName = profanityName.Replace(@"\", "nice try, injection alertnice try, injection alert nice try, injection alert  ");
+            profanityName = profanityName.Replace("admin", "123456789012345");
+            profanityName = profanityName.Replace("kuk", "123456789012345");
+            profanityName = profanityName.Replace("idiot", "123456789012345");
+            profanityName = profanityName.Replace("jävla", "123456789012345");
+            profanityName = profanityName.Replace("<", "123456789012345");
+            profanityName = profanityName.Replace(">", "123456789012345");
+            profanityName = profanityName.Replace("{", "123456789012345");
+            profanityName = profanityName.Replace("}", "123456789012345");
+            profanityName = profanityName.Replace("/", "123456789012345");
+            profanityName = profanityName.Replace(@"\", "123456789012345");
             profanityName = profanityName.Replace(@"Everyone", "JavaLover");
             profanityName = profanityName.Replace(@"everyone", "JavaLover");
             profanityName = profanityName.Replace(@"EVERYONE", "JavaLover");
-
             return profanityName;
         }
     }

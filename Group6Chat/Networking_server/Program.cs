@@ -221,12 +221,14 @@ namespace Networking_server
             {
                 tempUser.Message = tempUser.Message.Replace("kuk", "***");
                 tempUser.Message = tempUser.Message.Replace("korv", "Borg");
+                tempUser.Message = tempUser.Message.Replace("Korv", "Borg");
                 tempUser.Message = tempUser.Message.Replace("idiot", "***");
                 tempUser.Message = tempUser.Message.Replace("jävla", "***");
                 tempUser.Message = tempUser.Message.Replace("mullbänk", "***");
                 tempUser.Message = tempUser.Message.Replace("Mullbänk", "***");
                 tempUser.Message = tempUser.Message.Replace("JavaScript", "C# IS KING!");
                 tempUser.Message = tempUser.Message.Replace("javaScript", "C# RULES!");
+                tempUser.Message = tempUser.Message.Replace("javascript", "C# RULES!");
                 tempUser.Message = tempUser.Message.Replace("Java", "I LOVE C#");
                 tempUser.Message = tempUser.Message.Replace("java", "I LOVE C#");
                 tempUser.Message = tempUser.Message.Replace("<", "nice try, injection alert ");
