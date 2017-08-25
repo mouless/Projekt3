@@ -193,9 +193,6 @@ namespace Networking_server
                         }
                         if (tempUser.TypeOfMessage == MessageType.PrivateMessage)
                         {
-                            string message2 = tempUser.Receiver;
-                            tempUser.Receiver = tempUser.UserName;
-                            tempUser.UserName = message2;
                             message = JsonConvert.SerializeObject(tempUser);
                             myServer.PrivateMessage(message, tempUser.Receiver);
                         }

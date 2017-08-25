@@ -66,7 +66,7 @@ namespace Group6Chat
                 //    }
                 //}
 
-                var temp = privateChatWindow.Find(x => x.ReceiverOfPrivateMessage == u.Receiver);
+                var temp = privateChatWindow.Find(x => x.SenderOfPrivateMessage == u.Receiver);
                 if (temp != null)
                 {
                     temp.WriteToPrivateTextbox(u);
