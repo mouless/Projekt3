@@ -73,6 +73,7 @@ namespace Group6Chat
                 }
                 else
                 {
+                    //TODO: FINNS DET REDAN ETT PRIVATECHATFÖNSTER ÖPPET, ÖPPNA FÖR GUDS SKULL INTE ÄNNU ETT FÖNSTER!!!
                     NameOfSelectedPrivateConvo = u.UserName;
                     PrivateChatForm privateChat = new PrivateChatForm(NameOfSelectedPrivateConvo, UniqueUserName, HostServer);
                     privateChatWindow.Add(privateChat);
@@ -80,6 +81,7 @@ namespace Group6Chat
                     privateChat.Text = $"{NameOfSelectedPrivateConvo} - Private Chat";
                     privateChat.WriteToPrivateTextbox(u);
                     privateChat.Show();
+                    // Lägg in det störiga ljudet
                 }
 
 
@@ -157,7 +159,7 @@ namespace Group6Chat
             insertUserName.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
             insertUserName.ClientSize = new Size(Math.Max(300, label.Right + 10), insertUserName.ClientSize.Height);
             insertUserName.FormBorderStyle = FormBorderStyle.FixedDialog;
-            insertUserName.BackgroundImage = Properties.Resources.page_background_default;
+            //insertUserName.BackgroundImage = Properties.Resources.page_background_default;
 
             insertUserName.AcceptButton = buttonOk;
             insertUserName.CancelButton = buttonCancel;
@@ -230,16 +232,19 @@ namespace Group6Chat
 
         private void listBoxParticipants_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedForPrivateConvo = listBoxParticipants.SelectedIndex;
-            NameOfSelectedPrivateConvo = listBoxParticipants.Items[SelectedForPrivateConvo].ToString();
+            if (listBoxParticipants.SelectedIndex >= 0)
+            {
+                SelectedForPrivateConvo = listBoxParticipants.SelectedIndex;
+                NameOfSelectedPrivateConvo = listBoxParticipants.Items[SelectedForPrivateConvo].ToString();
 
-            if (SelectedForPrivateConvo >= 0 && NameOfSelectedPrivateConvo != UniqueUserName)
-            {
-                btnPrivateChat.Enabled = true;
-            }
-            else
-            {
-                btnPrivateChat.Enabled = false;
+                if (SelectedForPrivateConvo >= 0 && NameOfSelectedPrivateConvo != UniqueUserName)
+                {
+                    btnPrivateChat.Enabled = true;
+                }
+                else
+                {
+                    btnPrivateChat.Enabled = false;
+                }
             }
         }
 

@@ -60,8 +60,6 @@ namespace Group6Chat
 
         public void WriteToPrivateTextbox(User c)
         {
-            richTextBoxPrivateConvo.Text = c.Message;
-
             if (!(TimeStamp == DateTime.Now.ToShortTimeString()))
             {
                 TimeStamp = DateTime.Now.ToShortTimeString();

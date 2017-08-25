@@ -41,29 +41,13 @@ De kommande 24h ska vi:
 
 2017-08-25  Daily SCRUM:
 De senaste 24h gjorde vi:
-
+	Bestämde oss för att inte göra någon databas.
+	Skicka information om vilken client som nu är nedkopplad från servern.
+	Fixa en ny form för privat chat funktionalitet.
 De kommande 24h ska vi:
-	Inte kunna öppna flera connections.
-	Kolla varför man inte får mer än en fet-stil på UserName i privatchatten (samt varför den gamla historiken försvinner).
+	Inte kunna öppna flera connections!
+	Kolla varför man inte får mer än en fet-stil på UserName i privatchatten (samt varför den gamla historiken försvinner)!
+	Fixa varför message skrivs ut två gånger i richTextboxen (första gången före Timestamp och sen ännu en gång korrekt)!
 	Fixa ljud.
 	Möjlighet att trycka på ENTER för att skicka meddelande i PrivateChatWindow (samt initialfokus på textbox-rutan vid inlogg).
 	Kolla varför vi fick en bugg i CloseInANiceWay().
-
-
-	13:51
-	WRB: Hej
-	WRB: Hej
-	WRB: Hej
-	WRB: Hej
-	WRB: Hej
-	WRB: Hej
-	13:52
-	WRB: Hej
-	WRB: Hej
-	WRB: Hej
-	WRB: Hej
-	13:53
-	WRB: Hej
-	WRB: Hej
-	WRB: Hej
-	WRB: Hej
