@@ -219,6 +219,11 @@ namespace Networking_server
 
             private User InvokeProfanityFilter(User tempUser)
             {
+                tempUser.Message = tempUser.Message.Replace("tottenham", "I love Arsenal");
+                tempUser.Message = tempUser.Message.Replace("Tottenham", "I love Arsenal");
+                tempUser.Message = tempUser.Message.Replace("Hotspurs", "I love Arsenal");
+                tempUser.Message = tempUser.Message.Replace("hotspurs", "I love Arsenal");
+                tempUser.Message = tempUser.Message.Replace("ManU", "I love Arsenal");
                 tempUser.Message = tempUser.Message.Replace("kuk", "***");
                 tempUser.Message = tempUser.Message.Replace("korv", "Borg");
                 tempUser.Message = tempUser.Message.Replace("Korv", "Borg");
@@ -237,7 +242,10 @@ namespace Networking_server
                 tempUser.Message = tempUser.Message.Replace("}", "nice try, injection alert ");
                 tempUser.Message = tempUser.Message.Replace("/", "nice try, injection alert ");
                 tempUser.Message = tempUser.Message.Replace(@"\", "nice try, injection alert ");
-
+                if (tempUser.Message.Contains("nice try, injection alert "))
+                {
+                    tempUser.Message = "nice try, injection alert ";
+                }
                 return tempUser;
             }
         }
